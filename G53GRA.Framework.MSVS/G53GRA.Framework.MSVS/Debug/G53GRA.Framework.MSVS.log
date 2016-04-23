@@ -1,0 +1,37 @@
+﻿Build started 2016/4/23 10:30:39.
+     1>Project "C:\Users\Want\Desktop\FYP\G53GRA_C-Framework-master\G53GRA.Framework.MSVS\G53GRA.Framework.MSVS\G53GRA.Framework.MSVS.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         E:\VS\VC\bin\CL.exe /c /I.\Code\Demos\Texturing /I.\Code\Demos\Lighting /I.\Code\Objects /I.\Framework /I.\Code /I".\Code\Demos\Viewing Example" /I".\Code\Demos\Solar System" /I".\Code\Demos\Animated Lamp" /I.\Code\Demos\Triforce /I.\Code\Demos /I.\Framework\Utility /I.\Framework\Interface /I.\Framework\Engine /I../freeglut/include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Code\Castle.cpp
+         Castle.cpp
+       Link:
+         E:\VS\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Want\Desktop\FYP\G53GRA_C-Framework-master\G53GRA.Framework.MSVS\G53GRA.Framework.MSVS\Debug\G53GRA.Framework.MSVS.exe" /INCREMENTAL /NOLOGO /LIBPATH:../freeglut/lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Want\Desktop\FYP\G53GRA_C-Framework-master\G53GRA.Framework.MSVS\G53GRA.Framework.MSVS\Debug\G53GRA.Framework.MSVS.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Want\Desktop\FYP\G53GRA_C-Framework-master\G53GRA.Framework.MSVS\G53GRA.Framework.MSVS\Debug\G53GRA.Framework.MSVS.lib" /MACHINE:X86 Debug\Castle.obj
+         Debug\ClotheseCase.obj
+         Debug\Light.obj
+         Debug\MultiLight.obj
+         Debug\Room.obj
+         Debug\SpotLight.obj
+         Debug\Teapot.obj
+         Debug\Link.obj
+         Debug\SunLight.obj
+         Debug\TexturedCube.obj
+         Debug\Water.obj
+         Debug\DrawCube.obj
+         Debug\FirstRoom.obj
+         Debug\MyScene.obj
+         Debug\Planet.obj
+         Debug\Planet2.obj
+         Debug\Triangle.obj
+         Debug\Triforce.obj
+         Debug\Floor.obj
+         Debug\Engine.obj
+         Debug\main.obj
+         Debug\Scene.obj
+         Debug\Camera.obj
+         Debug\Texture.obj
+         Debug\Lamp.obj
+         G53GRA.Framework.MSVS.vcxproj -> C:\Users\Want\Desktop\FYP\G53GRA_C-Framework-master\G53GRA.Framework.MSVS\G53GRA.Framework.MSVS\Debug\G53GRA.Framework.MSVS.exe
+     1>Done Building Project "C:\Users\Want\Desktop\FYP\G53GRA_C-Framework-master\G53GRA.Framework.MSVS\G53GRA.Framework.MSVS\G53GRA.Framework.MSVS.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.33

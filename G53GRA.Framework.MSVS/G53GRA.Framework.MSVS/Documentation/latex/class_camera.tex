@@ -1,0 +1,290 @@
+\hypertarget{class_camera}{}\section{Camera Class Reference}
+\label{class_camera}\index{Camera@{Camera}}
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
+Inheritance diagram for Camera\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_camera}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_camera_a01f94c3543f56ede7af49dc778f19331}{Camera} ()
+\item 
+void {\bfseries Get\+Eye\+Position} (float \&x, float \&y, float \&z) const \hypertarget{class_camera_a77db484a2cd90ea89a4c42e2ddb50bb9}{}\label{class_camera_a77db484a2cd90ea89a4c42e2ddb50bb9}
+
+\item 
+void {\bfseries Get\+View\+Direction} (float \&x, float \&y, float \&z) const \hypertarget{class_camera_a2fb58e261783be389e8f31d72f0e519c}{}\label{class_camera_a2fb58e261783be389e8f31d72f0e519c}
+
+\item 
+void {\bfseries Get\+Forward\+Vector} (float \&x, float \&y, float \&z) const \hypertarget{class_camera_a87bb6f576b91e92ae7ab0b40a8b637d0}{}\label{class_camera_a87bb6f576b91e92ae7ab0b40a8b637d0}
+
+\item 
+void {\bfseries Get\+Right\+Vector} (float \&x, float \&y, float \&z) const \hypertarget{class_camera_a064623026c61013747babd237b1e4ffb}{}\label{class_camera_a064623026c61013747babd237b1e4ffb}
+
+\item 
+void {\bfseries Get\+Up\+Vector} (float \&x, float \&y, float \&z) const \hypertarget{class_camera_ad89f7bc75d6f87de02a252d269d5ba17}{}\label{class_camera_ad89f7bc75d6f87de02a252d269d5ba17}
+
+\item 
+void \hyperlink{class_camera_a4502b36b87b9f058bfad2c4716c00c1e}{Update} (const double \&delta\+Time)
+\item 
+void \hyperlink{class_camera_aa46f58b32270a571ab56dde4caca46db}{Reset} ()
+\item 
+void \hyperlink{class_camera_a2fea95f244577af436294a9b2c1fd1cc}{Set\+Viewport} ()
+\item 
+void \hyperlink{class_camera_aafed3cc6d06082a7396c38f4dd4a0549}{Handle\+Key} (unsigned char key, int state, int x, int y)
+\item 
+void \hyperlink{class_camera_aefce3308a5ed57fbc6666d8935fb7eac}{Handle\+Special\+Key} (int key, int state, int x, int y)
+\item 
+void \hyperlink{class_camera_adf8b8e5f8f1e88a373f102b3efa12697}{Handle\+Mouse} (int button, int state, int x, int y)
+\item 
+void \hyperlink{class_camera_af0b7923173a70a13f108ac69a8d9b848}{Handle\+Mouse\+Drag} (int x, int y)
+\item 
+void \hyperlink{class_camera_a47357f68951777da13bef3234ff7474e}{Handle\+Mouse\+Move} (int x, int y)
+\item 
+void \hyperlink{class_camera_a62032d7798b96031f332e20e7c8b1794}{Setup\+Camera} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class implements the base \hyperlink{class_camera}{Camera} functionality. It controls the position and view direction of the camera in your \hyperlink{class_scene}{Scene}. You may add functionality by creating a new class that inherits {\ttfamily \hyperlink{class_camera}{Camera}}, e.\+g.
+\begin{DoxyCode}
+\textcolor{keyword}{class }MyCamera : \textcolor{keyword}{public} \hyperlink{class_camera}{Camera} 
+\end{DoxyCode}
+ . You should avoid editting this class directly. 
+
+Note that
+\begin{DoxyCode}
+\hyperlink{class_camera}{Camera} 
+\end{DoxyCode}
+ extends the virtual class \hyperlink{class_input}{Input}, so will be passed key and mouse input by the window \begin{DoxyAuthor}{Author}
+wil 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Camera()}{Camera()}}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_camera_a01f94c3543f56ede7af49dc778f19331}{}\label{class_camera_a01f94c3543f56ede7af49dc778f19331}
+Constructor for \hyperlink{class_camera}{Camera} to set up viewing properties in rendering window 
+
+\subsection{Member Function Documentation}
+\index{Camera@{Camera}!Handle\+Key@{Handle\+Key}}
+\index{Handle\+Key@{Handle\+Key}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Handle\+Key(unsigned char key, int state, int x, int y)}{HandleKey(unsigned char key, int state, int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Handle\+Key (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{key, }
+\item[{int}]{state, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_camera_aafed3cc6d06082a7396c38f4dd4a0549}{}\label{class_camera_aafed3cc6d06082a7396c38f4dd4a0549}
+Captures input from
+\begin{DoxyCode}
+wasd 
+\end{DoxyCode}
+ -\/keys used for camera movement. 
+
+Spacebar  \#reset() reset\}s the camera. 
+
+Reimplemented from \hyperlink{class_input_a376e4472a9f3621238d6513252949366}{Input}.
+
+\index{Camera@{Camera}!Handle\+Mouse@{Handle\+Mouse}}
+\index{Handle\+Mouse@{Handle\+Mouse}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Handle\+Mouse(int button, int state, int x, int y)}{HandleMouse(int button, int state, int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Handle\+Mouse (
+\begin{DoxyParamCaption}
+\item[{int}]{button, }
+\item[{int}]{state, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_camera_adf8b8e5f8f1e88a373f102b3efa12697}{}\label{class_camera_adf8b8e5f8f1e88a373f102b3efa12697}
+Captures button click. Sets button to 0 if last mouse button is released. Saves current position of mouse at click. \begin{DoxySeeAlso}{See also}
+\hyperlink{class_camera_af0b7923173a70a13f108ac69a8d9b848}{Handle\+Mouse\+Drag(int, int)} 
+\end{DoxySeeAlso}
+
+
+Reimplemented from \hyperlink{class_input_a85fe43236eb168699ec57b37ab022741}{Input}.
+
+\index{Camera@{Camera}!Handle\+Mouse\+Drag@{Handle\+Mouse\+Drag}}
+\index{Handle\+Mouse\+Drag@{Handle\+Mouse\+Drag}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Handle\+Mouse\+Drag(int x, int y)}{HandleMouseDrag(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Handle\+Mouse\+Drag (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_camera_af0b7923173a70a13f108ac69a8d9b848}{}\label{class_camera_af0b7923173a70a13f108ac69a8d9b848}
+Called when mouse is moved (while a button is pressed down). Functionality currently only for {\bfseries L\+E\+FT} mouse click. 
+
+Calculates difference in mouse position since last call and adjusts camera \hyperlink{}{view} accordingly. Sensitivity is fixed at 0.\+01f. \begin{DoxySeeAlso}{See also}
+\hyperlink{class_camera_adf8b8e5f8f1e88a373f102b3efa12697}{Handle\+Mouse(int, int, int, int)} 
+\end{DoxySeeAlso}
+
+
+Reimplemented from \hyperlink{class_input_abb590b1b9684b966340a8377ab0d00e2}{Input}.
+
+\index{Camera@{Camera}!Handle\+Mouse\+Move@{Handle\+Mouse\+Move}}
+\index{Handle\+Mouse\+Move@{Handle\+Mouse\+Move}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Handle\+Mouse\+Move(int x, int y)}{HandleMouseMove(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Handle\+Mouse\+Move (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_camera_a47357f68951777da13bef3234ff7474e}{}\label{class_camera_a47357f68951777da13bef3234ff7474e}
+Called when mouse is moved in rendering window when no mouse button is pressed \begin{DoxySeeAlso}{See also}
+\hyperlink{class_camera_adf8b8e5f8f1e88a373f102b3efa12697}{Handle\+Mouse(int button, int state, int x, int y)} 
+
+\hyperlink{class_camera_af0b7923173a70a13f108ac69a8d9b848}{Handle\+Mouse\+Drag(int x, int y)} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate of mouse in rendering window \\
+\hline
+{\em y} & Y coordinate of mouse in rendering window \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_input_a89177666298fbef2797c677d486bc628}{Input}.
+
+\index{Camera@{Camera}!Handle\+Special\+Key@{Handle\+Special\+Key}}
+\index{Handle\+Special\+Key@{Handle\+Special\+Key}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Handle\+Special\+Key(int key, int state, int x, int y)}{HandleSpecialKey(int key, int state, int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Handle\+Special\+Key (
+\begin{DoxyParamCaption}
+\item[{int}]{key, }
+\item[{int}]{state, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_camera_aefce3308a5ed57fbc6666d8935fb7eac}{}\label{class_camera_aefce3308a5ed57fbc6666d8935fb7eac}
+Called when keyboard input is received from special (non-\/\+A\+S\+C\+II) characters. 
+
+key constants are named G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+$\ast$ where $\ast$ is the key. For example\+: 
+
+(arrow keys) G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+UP, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+D\+O\+WN, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+L\+E\+FT, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+R\+I\+G\+HT, 
+
+G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+P\+A\+G\+E\+\_\+\+UP, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+P\+A\+G\+E\+\_\+\+D\+O\+WN, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+H\+O\+ME, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+E\+ND, 
+
+G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+F1, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+F2, etc. 
+
+Example implementation\+: 
+\begin{DoxyCode}
+  \textcolor{keywordtype}{void} MyObject::HandleKey(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} key, \textcolor{keywordtype}{int} state, \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y)\{
+      \textcolor{keywordflow}{if} (state == 1)\{ \textcolor{comment}{// if key pressed down}
+        \textcolor{keywordflow}{switch}(key)\{ \textcolor{comment}{// special key}
+            \textcolor{keywordflow}{case} GLUT\_KEY\_LEFT:
+                  glTranslate(-1.f,0.f,0.f); \textcolor{comment}{// go left}
+                \textcolor{keywordflow}{break};
+            \textcolor{keywordflow}{case} GLUT\_KEY\_RIGHT:
+                  glTranslate(1.f,0.f,0.f); \textcolor{comment}{// go right}
+                \textcolor{keywordflow}{break};
+        \}
+    \}
+\}
+\end{DoxyCode}
+ \begin{DoxySeeAlso}{See also}
+\#\+Handle\+Key(char key, int state, int x, int y) 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & coded keyboard input \\
+\hline
+{\em state} & 1 if key down, 0 if key up \\
+\hline
+{\em x} & X coordinate of mouse in rendering window \\
+\hline
+{\em y} & Y coordinate of mouse in rendering window \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_input_adccce536f10dfe4b1de2bb22ed8ae538}{Input}.
+
+\index{Camera@{Camera}!Reset@{Reset}}
+\index{Reset@{Reset}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Reset()}{Reset()}}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_camera_aa46f58b32270a571ab56dde4caca46db}{}\label{class_camera_aa46f58b32270a571ab56dde4caca46db}
+Resets \hyperlink{class_camera}{Camera} vectors to default values. Sets position of camera at (0,0) in x,y-\/plane and puts z-\/position at
+\begin{DoxyCode}
+0.5*height/tan(pi/6) 
+\end{DoxyCode}
+ which puts the coordinate width and height of window into view (if projection is in perspective view, and both
+\begin{DoxyCode}
+fovy = 60 
+\end{DoxyCode}
+ \textdegree{} and
+\begin{DoxyCode}
+aspect =  width/height 
+\end{DoxyCode}
+ ) 
+
+
+\begin{DoxyCode}
+width 
+\end{DoxyCode}
+ and
+\begin{DoxyCode}
+height 
+\end{DoxyCode}
+ refer to the window size of
+\begin{DoxyCode}
+\hyperlink{class_scene}{Scene} 
+\end{DoxyCode}
+ \hyperlink{}{parent}. \index{Camera@{Camera}!Setup\+Camera@{Setup\+Camera}}
+\index{Setup\+Camera@{Setup\+Camera}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Setup\+Camera()}{SetupCamera()}}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Setup\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_camera_a62032d7798b96031f332e20e7c8b1794}{}\label{class_camera_a62032d7798b96031f332e20e7c8b1794}
+Called by \hyperlink{class_scene}{Scene} to position camera. 
+
+Sets up position (\hyperlink{}{eye}), look at (
+\begin{DoxyCode}
+cen= 
+\end{DoxyCode}
+ \hyperlink{}{eye}
+\begin{DoxyCode}
++ 
+\end{DoxyCode}
+ \hyperlink{}{view}) and up vector (\hyperlink{}{up}) and updates \hyperlink{class_scene}{Scene} viewing. \begin{DoxySeeAlso}{See also}
+\#\+Update(float) 
+
+\hyperlink{class_camera_aa46f58b32270a571ab56dde4caca46db}{Reset()} 
+\end{DoxySeeAlso}
+\index{Camera@{Camera}!Set\+Viewport@{Set\+Viewport}}
+\index{Set\+Viewport@{Set\+Viewport}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Set\+Viewport()}{SetViewport()}}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Set\+Viewport (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_camera_a2fea95f244577af436294a9b2c1fd1cc}{}\label{class_camera_a2fea95f244577af436294a9b2c1fd1cc}
+Sets the window viewport of the scene \index{Camera@{Camera}!Update@{Update}}
+\index{Update@{Update}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Update(const double \&delta\+Time)}{Update(const double &deltaTime)}}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{const double \&}]{delta\+Time}
+\end{DoxyParamCaption}
+)}\hypertarget{class_camera_a4502b36b87b9f058bfad2c4716c00c1e}{}\label{class_camera_a4502b36b87b9f058bfad2c4716c00c1e}
+Update the position of the camera and look-\/at vectors based on keyboard input. 
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & change in time since previous call (unused) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Framework/\+Utility/Camera.\+h\item 
+Framework/\+Utility/Camera.\+cpp\end{DoxyCompactItemize}

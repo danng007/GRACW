@@ -1,0 +1,140 @@
+\hypertarget{class_displayable_object}{}\section{Displayable\+Object Class Reference}
+\label{class_displayable_object}\index{Displayable\+Object@{Displayable\+Object}}
+
+
+{\ttfamily \#include $<$Displayable\+Object.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_displayable_object_a2de32e213b8b7f16e72f385e8bf3c7e8}{Displayable\+Object} ()
+\item 
+virtual void \hyperlink{class_displayable_object_af1fe25dbf6950d41cbf9b99277d0d825}{Display} ()=0
+\item 
+void \hyperlink{class_displayable_object_afe2221908b0bf6746ae39d15a3422627}{position} (float x, float y, float z)
+\item 
+void \hyperlink{class_displayable_object_ae5da1215619f8119a2fa9b79bbc52534}{size} (float s)
+\item 
+void \hyperlink{class_displayable_object_ac199796e336d20345eabd48c5a8d559f}{size} (float sx, float sy, float sz)
+\item 
+void \hyperlink{class_displayable_object_a0101b77de7909105221c772e8b969d48}{orientation} (float rx, float ry, float rz)
+\item 
+float $\ast$ \hyperlink{class_displayable_object_ab321394a5a8fab049f6092051d0183cc}{size} ()
+\item 
+float $\ast$ \hyperlink{class_displayable_object_ac2bf3fd3c6e8c902e250c9df4b06dc1b}{orientation} ()
+\item 
+float $\ast$ \hyperlink{class_displayable_object_a5c50e13b8274882a8dcfe2582bb9c5df}{position} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_displayable_object_a7cc44f282422020c02184f34861b6f7a}{pos} \mbox{[}3\mbox{]}
+\item 
+float \hyperlink{class_displayable_object_aedc1ec03b36a5be1b5ff6c27a361c6f6}{scale} \mbox{[}3\mbox{]}
+\item 
+float \hyperlink{class_displayable_object_a9f828c99272a0de1910c6ffb19b0f7d1}{rotation} \mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Virtual class to be inherited by all objects to be displayed in \hyperlink{class_scene}{Scene} 
+
+Contains purely virtual \hyperlink{class_displayable_object_af1fe25dbf6950d41cbf9b99277d0d825}{Display} method that must be overloaded. \hyperlink{class_displayable_object_af1fe25dbf6950d41cbf9b99277d0d825}{Display()} is called from \hyperlink{class_scene}{Scene}. \begin{DoxyAuthor}{Author}
+wil 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Displayable\+Object@{Displayable\+Object}!Displayable\+Object@{Displayable\+Object}}
+\index{Displayable\+Object@{Displayable\+Object}!Displayable\+Object@{Displayable\+Object}}
+\subsubsection[{\texorpdfstring{Displayable\+Object()}{DisplayableObject()}}]{\setlength{\rightskip}{0pt plus 5cm}Displayable\+Object\+::\+Displayable\+Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_displayable_object_a2de32e213b8b7f16e72f385e8bf3c7e8}{}\label{class_displayable_object_a2de32e213b8b7f16e72f385e8bf3c7e8}
+Default constructor 
+
+Initialises position, size and orientation to origin in World Space. 
+
+\subsection{Member Function Documentation}
+\index{Displayable\+Object@{Displayable\+Object}!Display@{Display}}
+\index{Display@{Display}!Displayable\+Object@{Displayable\+Object}}
+\subsubsection[{\texorpdfstring{Display()=0}{Display()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Displayable\+Object\+::\+Display (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_displayable_object_af1fe25dbf6950d41cbf9b99277d0d825}{}\label{class_displayable_object_af1fe25dbf6950d41cbf9b99277d0d825}
+Virtual method. Called from \hyperlink{class_scene}{Scene} parent. 
+
+Must be overloaded by your \hyperlink{class_displayable_object}{Displayable\+Object} subclass. Contains all rendering commands. \index{Displayable\+Object@{Displayable\+Object}!orientation@{orientation}}
+\index{orientation@{orientation}!Displayable\+Object@{Displayable\+Object}}
+\subsubsection[{\texorpdfstring{orientation(float rx, float ry, float rz)}{orientation(float rx, float ry, float rz)}}]{\setlength{\rightskip}{0pt plus 5cm}void Displayable\+Object\+::orientation (
+\begin{DoxyParamCaption}
+\item[{float}]{rx, }
+\item[{float}]{ry, }
+\item[{float}]{rz}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_displayable_object_a0101b77de7909105221c772e8b969d48}{}\label{class_displayable_object_a0101b77de7909105221c772e8b969d48}
+set orientation in World Space \index{Displayable\+Object@{Displayable\+Object}!orientation@{orientation}}
+\index{orientation@{orientation}!Displayable\+Object@{Displayable\+Object}}
+\subsubsection[{\texorpdfstring{orientation()}{orientation()}}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ Displayable\+Object\+::orientation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_displayable_object_ac2bf3fd3c6e8c902e250c9df4b06dc1b}{}\label{class_displayable_object_ac2bf3fd3c6e8c902e250c9df4b06dc1b}
+Get orientation in World Space \index{Displayable\+Object@{Displayable\+Object}!position@{position}}
+\index{position@{position}!Displayable\+Object@{Displayable\+Object}}
+\subsubsection[{\texorpdfstring{position(float x, float y, float z)}{position(float x, float y, float z)}}]{\setlength{\rightskip}{0pt plus 5cm}void Displayable\+Object\+::position (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_displayable_object_afe2221908b0bf6746ae39d15a3422627}{}\label{class_displayable_object_afe2221908b0bf6746ae39d15a3422627}
+set World Space position \index{Displayable\+Object@{Displayable\+Object}!position@{position}}
+\index{position@{position}!Displayable\+Object@{Displayable\+Object}}
+\subsubsection[{\texorpdfstring{position()}{position()}}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ Displayable\+Object\+::position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_displayable_object_a5c50e13b8274882a8dcfe2582bb9c5df}{}\label{class_displayable_object_a5c50e13b8274882a8dcfe2582bb9c5df}
+Get World Space position \index{Displayable\+Object@{Displayable\+Object}!size@{size}}
+\index{size@{size}!Displayable\+Object@{Displayable\+Object}}
+\subsubsection[{\texorpdfstring{size(float s)}{size(float s)}}]{\setlength{\rightskip}{0pt plus 5cm}void Displayable\+Object\+::size (
+\begin{DoxyParamCaption}
+\item[{float}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_displayable_object_ae5da1215619f8119a2fa9b79bbc52534}{}\label{class_displayable_object_ae5da1215619f8119a2fa9b79bbc52534}
+set size in World Space (single value) \index{Displayable\+Object@{Displayable\+Object}!size@{size}}
+\index{size@{size}!Displayable\+Object@{Displayable\+Object}}
+\subsubsection[{\texorpdfstring{size(float sx, float sy, float sz)}{size(float sx, float sy, float sz)}}]{\setlength{\rightskip}{0pt plus 5cm}void Displayable\+Object\+::size (
+\begin{DoxyParamCaption}
+\item[{float}]{sx, }
+\item[{float}]{sy, }
+\item[{float}]{sz}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_displayable_object_ac199796e336d20345eabd48c5a8d559f}{}\label{class_displayable_object_ac199796e336d20345eabd48c5a8d559f}
+set size in World Space (seperate axes) \index{Displayable\+Object@{Displayable\+Object}!size@{size}}
+\index{size@{size}!Displayable\+Object@{Displayable\+Object}}
+\subsubsection[{\texorpdfstring{size()}{size()}}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ Displayable\+Object\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_displayable_object_ab321394a5a8fab049f6092051d0183cc}{}\label{class_displayable_object_ab321394a5a8fab049f6092051d0183cc}
+Get size in World Space 
+
+\subsection{Member Data Documentation}
+\index{Displayable\+Object@{Displayable\+Object}!pos@{pos}}
+\index{pos@{pos}!Displayable\+Object@{Displayable\+Object}}
+\subsubsection[{\texorpdfstring{pos}{pos}}]{\setlength{\rightskip}{0pt plus 5cm}float Displayable\+Object\+::pos\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_displayable_object_a7cc44f282422020c02184f34861b6f7a}{}\label{class_displayable_object_a7cc44f282422020c02184f34861b6f7a}
+float\mbox{[}\mbox{]} containing World Space position coordinates \index{Displayable\+Object@{Displayable\+Object}!rotation@{rotation}}
+\index{rotation@{rotation}!Displayable\+Object@{Displayable\+Object}}
+\subsubsection[{\texorpdfstring{rotation}{rotation}}]{\setlength{\rightskip}{0pt plus 5cm}float Displayable\+Object\+::rotation\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_displayable_object_a9f828c99272a0de1910c6ffb19b0f7d1}{}\label{class_displayable_object_a9f828c99272a0de1910c6ffb19b0f7d1}
+float\mbox{[}\mbox{]} containing angles of orientation in World Space for x, y, and z axes \index{Displayable\+Object@{Displayable\+Object}!scale@{scale}}
+\index{scale@{scale}!Displayable\+Object@{Displayable\+Object}}
+\subsubsection[{\texorpdfstring{scale}{scale}}]{\setlength{\rightskip}{0pt plus 5cm}float Displayable\+Object\+::scale\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_displayable_object_aedc1ec03b36a5be1b5ff6c27a361c6f6}{}\label{class_displayable_object_aedc1ec03b36a5be1b5ff6c27a361c6f6}
+float\mbox{[}\mbox{]} containing relative World Space scaling values for x,y,z 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Framework/\+Interface/Displayable\+Object.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,43 @@
+\hypertarget{class_animation}{}\section{Animation Class Reference}
+\label{class_animation}\index{Animation@{Animation}}
+
+
+{\ttfamily \#include $<$Animation.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_animation_a9dfb90e9da318cd154892998d8152233}{Update} (const double \&delta\+Time)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to be subclassed alongside \hyperlink{class_displayable_object}{Displayable\+Object} for all animated objects to be displayed in a \hyperlink{class_scene}{Scene} 
+
+Contains \hyperlink{class_animation_a9dfb90e9da318cd154892998d8152233}{Update} method that must be overloaded. \hyperlink{}{Update(float delta\+Time)} is called from \hyperlink{class_scene}{Scene}.
+
+\begin{DoxyAuthor}{Author}
+wil 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\index{Animation@{Animation}!Update@{Update}}
+\index{Update@{Update}!Animation@{Animation}}
+\subsubsection[{\texorpdfstring{Update(const double \&delta\+Time)=0}{Update(const double &deltaTime)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Animation\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{const double \&}]{delta\+Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_animation_a9dfb90e9da318cd154892998d8152233}{}\label{class_animation_a9dfb90e9da318cd154892998d8152233}
+Called each frame to update. Must be defined! 
+
+Use this to update animation sequence. 
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & change in time since previous call \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Framework/\+Interface/Animation.\+h\end{DoxyCompactItemize}

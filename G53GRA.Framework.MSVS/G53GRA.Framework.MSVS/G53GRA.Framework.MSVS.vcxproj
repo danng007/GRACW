@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{54A3CC1C-B705-4BBC-949A-584E7F50EC4B}</ProjectGuid>
+    <RootNamespace>G53GRAFrameworkMSVS</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.\Code\Demos\Texturing;.\Code\Demos\Lighting;.\Code\Objects;.\Framework;.\Code;.\Code\Demos\Viewing Example;.\Code\Demos\Solar System;.\Code\Demos\Animated Lamp;.\Code\Demos\Triforce;.\Code\Demos;.\Framework\Utility;.\Framework\Interface;.\Framework\Engine;../freeglut/include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../freeglut/lib</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Code\Castle.cpp" />
+    <ClCompile Include="Code\ClotheseCase.cpp" />
+    <ClCompile Include="Code\Demos\Lighting\Light.cpp" />
+    <ClCompile Include="Code\Demos\Lighting\MultiLight.cpp" />
+    <ClCompile Include="Code\Demos\Lighting\Room.cpp" />
+    <ClCompile Include="Code\Demos\Lighting\SpotLight.cpp" />
+    <ClCompile Include="Code\Demos\Lighting\Teapot.cpp" />
+    <ClCompile Include="Code\Demos\Texturing\Link.cpp" />
+    <ClCompile Include="Code\Demos\Texturing\SunLight.cpp" />
+    <ClCompile Include="Code\Demos\Texturing\TexturedCube.cpp" />
+    <ClCompile Include="Code\Demos\Texturing\Water.cpp" />
+    <ClCompile Include="Code\DrawCube.cpp" />
+    <ClCompile Include="Code\FirstRoom.cpp" />
+    <ClCompile Include="Code\MyScene.cpp" />
+    <ClCompile Include="Code\Demos\Solar System\Planet.cpp" />
+    <ClCompile Include="Code\Demos\Solar System\Planet2.cpp" />
+    <ClCompile Include="Code\Demos\Triangle.cpp" />
+    <ClCompile Include="Code\Demos\Triforce\Triforce.cpp" />
+    <ClCompile Include="Code\Demos\Viewing Example\Floor.cpp" />
+    <ClCompile Include="Framework\Engine\Engine.cpp" />
+    <ClCompile Include="Code\main.cpp" />
+    <ClCompile Include="Framework\Engine\Scene.cpp" />
+    <ClCompile Include="Framework\Utility\Camera.cpp" />
+    <ClCompile Include="Framework\Utility\Texture.cpp" />
+    <ClCompile Include="Code\Demos\Animated Lamp\Lamp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Code\Castle.h" />
+    <ClInclude Include="Code\ClotheseCase.h" />
+    <ClInclude Include="Code\Demos\Animated Lamp\LampMesh.h" />
+    <ClInclude Include="Code\Demos\Lighting\Light.h" />
+    <ClInclude Include="Code\Demos\Lighting\MultiLight.h" />
+    <ClInclude Include="Code\Demos\Lighting\Room.h" />
+    <ClInclude Include="Code\Demos\Lighting\SpotLight.h" />
+    <ClInclude Include="Code\Demos\Lighting\Teapot.h" />
+    <ClInclude Include="Code\Demos\Texturing\Link.h" />
+    <ClInclude Include="Code\Demos\Texturing\SunLight.h" />
+    <ClInclude Include="Code\Demos\Texturing\TexturedCube.h" />
+    <ClInclude Include="Code\Demos\Texturing\Water.h" />
+    <ClInclude Include="Code\DrawCube.h" />
+    <ClInclude Include="Code\FirstRoom.h" />
+    <ClInclude Include="Code\MyScene.h" />
+    <ClInclude Include="Code\Demos\Solar System\Planet.h" />
+    <ClInclude Include="Code\Demos\Solar System\Planet2.h" />
+    <ClInclude Include="Code\Demos\Triangle.h" />
+    <ClInclude Include="Code\Demos\Triforce\Triforce.h" />
+    <ClInclude Include="Code\Demos\Viewing Example\Floor.h" />
+    <ClInclude Include="Framework\Interface\Animation.h" />
+    <ClInclude Include="Framework\Engine\Engine.h" />
+    <ClInclude Include="Framework\Interface\DisplayableObject.h" />
+    <ClInclude Include="Framework\Interface\Input.h" />
+    <ClInclude Include="Framework\Engine\Scene.h" />
+    <ClInclude Include="Framework\Utility\Camera.h" />
+    <ClInclude Include="Framework\Utility\Texture.h" />
+    <ClInclude Include="Framework\Utility\VectorMath.h" />
+    <ClInclude Include="Code\Demos\Animated Lamp\Lamp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Code\Demos\Texturing\batmanlogo.bmp" />
+    <Image Include="Code\Demos\Texturing\linkSpriteSheet.bmp" />
+    <Image Include="Code\Demos\Texturing\water.bmp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

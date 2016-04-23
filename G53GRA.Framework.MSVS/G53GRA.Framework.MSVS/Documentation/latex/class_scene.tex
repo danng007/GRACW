@@ -1,0 +1,249 @@
+\hypertarget{class_scene}{}\section{Scene Class Reference}
+\label{class_scene}\index{Scene@{Scene}}
+Inheritance diagram for Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_scene}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_scene_a75a2d7229276dfb590272846083cc64d}{Scene} (int argc, char $\ast$$\ast$argv, const char $\ast$title, const int \&window\+Width, const int \&window\+Height)
+\item 
+virtual \hyperlink{class_scene_a3b8cec2e32546713915f8c6303c951f1}{$\sim$\+Scene} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{class_scene_ac311bf97401b0d26e6df07efed35d355}{Get\+Window\+Width} ()
+\item 
+static int \hyperlink{class_scene_a178707699459f782a39ed7f6508ccd41}{Get\+Window\+Height} ()
+\item 
+static int \hyperlink{class_scene_ad2ff858bbd74d760d543bb29ca8c8153}{Get\+Texture} (std\+::string file\+Name)
+\item 
+static \hyperlink{class_camera}{Camera} $\ast$ \hyperlink{class_scene_aa08b6b22037aa939e6e6fe732765bc66}{Get\+Camera} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_scene_ac97910ce8ed0aa0498a796d1cc7e0df5}{Initialise} ()=0
+\item 
+void \hyperlink{class_scene_a4813338ee7c6c995f5bb6f10e3673804}{Draw} ()
+\item 
+void \hyperlink{class_scene_a66107de97484c0f9a060e008cdc7320b}{Reshape} (int w, int h)
+\item 
+virtual void \hyperlink{class_scene_a6bf51e06c437c820c848be4c76c5ddae}{Projection} ()
+\item 
+void \hyperlink{class_scene_ab18f75e30620503fbfe2fb138116be5b}{Update} (const double \&delta\+Time)
+\item 
+void {\bfseries Handle\+Key} (unsigned char key, int state, int x, int y)\hypertarget{class_scene_a869ee0cb7f2b96b15ba6a7cce7e8358a}{}\label{class_scene_a869ee0cb7f2b96b15ba6a7cce7e8358a}
+
+\item 
+void {\bfseries Handle\+Special\+Key} (int key, int state, int x, int y)\hypertarget{class_scene_a8d878c181721d6dceac001de0ee73810}{}\label{class_scene_a8d878c181721d6dceac001de0ee73810}
+
+\item 
+void {\bfseries Handle\+Mouse} (int button, int state, int x, int y)\hypertarget{class_scene_a523a91aec3a7f546356dd0a06eb1d563}{}\label{class_scene_a523a91aec3a7f546356dd0a06eb1d563}
+
+\item 
+void {\bfseries Handle\+Mouse\+Drag} (int x, int y)\hypertarget{class_scene_a2265ef3985ed79dfa7f942b615fab3eb}{}\label{class_scene_a2265ef3985ed79dfa7f942b615fab3eb}
+
+\item 
+void {\bfseries Handle\+Mouse\+Move} (int x, int y)\hypertarget{class_scene_a43334d6db1ff83d24135aa566c318b6d}{}\label{class_scene_a43334d6db1ff83d24135aa566c318b6d}
+
+\item 
+void \hyperlink{class_scene_ab42e4830fe5baac28fa3e6d144492a82}{Add\+Object\+To\+Scene} (\hyperlink{class_displayable_object}{Displayable\+Object} $\ast$obj)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Scene@{Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!Scene@{Scene}}
+\subsubsection[{\texorpdfstring{Scene(int argc, char $\ast$$\ast$argv, const char $\ast$title, const int \&window\+Width, const int \&window\+Height)}{Scene(int argc, char **argv, const char *title, const int &windowWidth, const int &windowHeight)}}]{\setlength{\rightskip}{0pt plus 5cm}Scene\+::\+Scene (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv, }
+\item[{const char $\ast$}]{title, }
+\item[{const int \&}]{window\+Width, }
+\item[{const int \&}]{window\+Height}
+\end{DoxyParamCaption}
+)}\hypertarget{class_scene_a75a2d7229276dfb590272846083cc64d}{}\label{class_scene_a75a2d7229276dfb590272846083cc64d}
+Constructor, overrides \hyperlink{class_engine_a06d6fce9529416545e9b88edf5128358}{Engine()} and takes in command line arguments, a title and initial window dimensions. \index{Scene@{Scene}!````~Scene@{$\sim$\+Scene}}
+\index{````~Scene@{$\sim$\+Scene}!Scene@{Scene}}
+\subsubsection[{\texorpdfstring{$\sim$\+Scene()}{~Scene()}}]{\setlength{\rightskip}{0pt plus 5cm}Scene\+::$\sim$\+Scene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_scene_a3b8cec2e32546713915f8c6303c951f1}{}\label{class_scene_a3b8cec2e32546713915f8c6303c951f1}
+Destructor\+: deletes all \hyperlink{class_displayable_object}{Displayable\+Object}s in the \hyperlink{class_scene}{Scene} 
+
+\subsection{Member Function Documentation}
+\index{Scene@{Scene}!Add\+Object\+To\+Scene@{Add\+Object\+To\+Scene}}
+\index{Add\+Object\+To\+Scene@{Add\+Object\+To\+Scene}!Scene@{Scene}}
+\subsubsection[{\texorpdfstring{Add\+Object\+To\+Scene(\+Displayable\+Object $\ast$obj)}{AddObjectToScene(DisplayableObject *obj)}}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::\+Add\+Object\+To\+Scene (
+\begin{DoxyParamCaption}
+\item[{{\bf Displayable\+Object} $\ast$}]{obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_scene_ab42e4830fe5baac28fa3e6d144492a82}{}\label{class_scene_ab42e4830fe5baac28fa3e6d144492a82}
+Adds a \hyperlink{class_displayable_object}{Displayable\+Object} (includes \hyperlink{class_animation}{Animation}s) to the \hyperlink{class_scene}{Scene}. 
+
+It is strongly recommended you do N\+OT attempt to override this method. \begin{DoxySeeAlso}{See also}
+\#add\+Object\+To\+Scene(\+Displayable\+Object, String) 
+
+\#get\+Object(\+String) 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & \hyperlink{class_displayable_object}{Displayable\+Object} to be added to the scene. \\
+\hline
+\end{DoxyParams}
+\index{Scene@{Scene}!Draw@{Draw}}
+\index{Draw@{Draw}!Scene@{Scene}}
+\subsubsection[{\texorpdfstring{Draw()}{Draw()}}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::\+Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_scene_a4813338ee7c6c995f5bb6f10e3673804}{}\label{class_scene_a4813338ee7c6c995f5bb6f10e3673804}
+This function will loop continuously until the program is exited. It will iterate through the objects and render in your \hyperlink{class_scene}{Scene} 
+
+The frequency at which
+\begin{DoxyCode}
+\hyperlink{class_scene_a4813338ee7c6c995f5bb6f10e3673804}{Draw}() 
+\end{DoxyCode}
+ is called per second is dependent on your hardware and scene, so for animation, you M\+U\+ST use the \hyperlink{class_scene_ab18f75e30620503fbfe2fb138116be5b}{Update} method with
+\begin{DoxyCode}
+deltaTime 
+\end{DoxyCode}
+ 
+
+It is strongly recommended you do N\+OT attempt to override this method. 
+
+
+\begin{DoxyCode}
+\hyperlink{class_scene_a4813338ee7c6c995f5bb6f10e3673804}{Draw}() 
+\end{DoxyCode}
+ should N\+E\+V\+ER be called explicitly. \begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_a66107de97484c0f9a060e008cdc7320b}{Reshape()} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{class_engine}{Engine}.
+
+\index{Scene@{Scene}!Get\+Camera@{Get\+Camera}}
+\index{Get\+Camera@{Get\+Camera}!Scene@{Scene}}
+\subsubsection[{\texorpdfstring{Get\+Camera()}{GetCamera()}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Camera}$\ast$ Scene\+::\+Get\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{class_scene_aa08b6b22037aa939e6e6fe732765bc66}{}\label{class_scene_aa08b6b22037aa939e6e6fe732765bc66}
+Returns a pointer to the \hyperlink{class_camera}{Camera} \index{Scene@{Scene}!Get\+Texture@{Get\+Texture}}
+\index{Get\+Texture@{Get\+Texture}!Scene@{Scene}}
+\subsubsection[{\texorpdfstring{Get\+Texture(std\+::string file\+Name)}{GetTexture(std::string fileName)}}]{\setlength{\rightskip}{0pt plus 5cm}int Scene\+::\+Get\+Texture (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_scene_ad2ff858bbd74d760d543bb29ca8c8153}{}\label{class_scene_ad2ff858bbd74d760d543bb29ca8c8153}
+\hyperlink{class_input}{Input} a .bmp bitmap image to bind to internal texture buffer \begin{DoxyReturn}{Returns}
+texture\+ID  file\+Name the name of the texture file you want to input 
+\end{DoxyReturn}
+\index{Scene@{Scene}!Get\+Window\+Height@{Get\+Window\+Height}}
+\index{Get\+Window\+Height@{Get\+Window\+Height}!Scene@{Scene}}
+\subsubsection[{\texorpdfstring{Get\+Window\+Height()}{GetWindowHeight()}}]{\setlength{\rightskip}{0pt plus 5cm}int Scene\+::\+Get\+Window\+Height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_scene_a178707699459f782a39ed7f6508ccd41}{}\label{class_scene_a178707699459f782a39ed7f6508ccd41}
+Return window height \index{Scene@{Scene}!Get\+Window\+Width@{Get\+Window\+Width}}
+\index{Get\+Window\+Width@{Get\+Window\+Width}!Scene@{Scene}}
+\subsubsection[{\texorpdfstring{Get\+Window\+Width()}{GetWindowWidth()}}]{\setlength{\rightskip}{0pt plus 5cm}int Scene\+::\+Get\+Window\+Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_scene_ac311bf97401b0d26e6df07efed35d355}{}\label{class_scene_ac311bf97401b0d26e6df07efed35d355}
+Return window width \index{Scene@{Scene}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!Scene@{Scene}}
+\subsubsection[{\texorpdfstring{Initialise()=0}{Initialise()=0}}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::\+Initialise (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{class_scene_ac97910ce8ed0aa0498a796d1cc7e0df5}{}\label{class_scene_ac97910ce8ed0aa0498a796d1cc7e0df5}
+This must be overloaded this to add \hyperlink{class_displayable_object}{Displayable\+Object}s to your scene. \begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_a6bf51e06c437c820c848be4c76c5ddae}{Projection()} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{class_engine}{Engine}.
+
+\index{Scene@{Scene}!Projection@{Projection}}
+\index{Projection@{Projection}!Scene@{Scene}}
+\subsubsection[{\texorpdfstring{Projection()}{Projection()}}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::\+Projection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_scene_a6bf51e06c437c820c848be4c76c5ddae}{}\label{class_scene_a6bf51e06c437c820c848be4c76c5ddae}
+Sets the projection properties of the scene. Override to change projection properties. 
+
+Default\+: Orthographic mode \index{Scene@{Scene}!Reshape@{Reshape}}
+\index{Reshape@{Reshape}!Scene@{Scene}}
+\subsubsection[{\texorpdfstring{Reshape(int w, int h)}{Reshape(int w, int h)}}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::\+Reshape (
+\begin{DoxyParamCaption}
+\item[{int}]{w, }
+\item[{int}]{h}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_scene_a66107de97484c0f9a060e008cdc7320b}{}\label{class_scene_a66107de97484c0f9a060e008cdc7320b}
+Called when the window is resized, and handles resizing events. 
+
+You should this function to handle the window being resized. The default property is to update the projection parameters. You can access the window size parameters by the
+\begin{DoxyCode}
+w 
+\end{DoxyCode}
+ and
+\begin{DoxyCode}
+h 
+\end{DoxyCode}
+ variables. For example, you could overload this function to adjust the size of all objects in your
+\begin{DoxyCode}
+\hyperlink{class_scene}{Scene} 
+\end{DoxyCode}
+ . \begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_a4813338ee7c6c995f5bb6f10e3673804}{Draw()} 
+
+\hyperlink{class_scene_a6bf51e06c437c820c848be4c76c5ddae}{Projection()} 
+
+\hyperlink{class_scene_ac97910ce8ed0aa0498a796d1cc7e0df5}{Initialise()} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{class_engine}{Engine}.
+
+\index{Scene@{Scene}!Update@{Update}}
+\index{Update@{Update}!Scene@{Scene}}
+\subsubsection[{\texorpdfstring{Update(const double \&delta\+Time)}{Update(const double &deltaTime)}}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::\+Update (
+\begin{DoxyParamCaption}
+\item[{const double \&}]{delta\+Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_scene_ab18f75e30620503fbfe2fb138116be5b}{}\label{class_scene_ab18f75e30620503fbfe2fb138116be5b}
+The update function for \hyperlink{class_camera}{Camera} and \hyperlink{class_animation}{Animation}. Calculates the time-\/delay since the last update and passes as a parameter to the respective class\textquotesingle{}s
+\begin{DoxyCode}
+\hyperlink{class_scene_ab18f75e30620503fbfe2fb138116be5b}{Update}() 
+\end{DoxyCode}
+ functions. 
+
+You should only override this class if you want to change how the animation update function works. This is not advised. \begin{DoxySeeAlso}{See also}
+\hyperlink{class_camera}{Camera} 
+
+\hyperlink{class_animation}{Animation} 
+
+\hyperlink{class_scene_a4813338ee7c6c995f5bb6f10e3673804}{Draw()} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{class_engine}{Engine}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Framework/\+Engine/Scene.\+h\item 
+Framework/\+Engine/Scene.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,283 @@
+\hypertarget{class_engine}{}\section{Engine Class Reference}
+\label{class_engine}\index{Engine@{Engine}}
+
+
+{\ttfamily \#include $<$Engine.\+h$>$}
+
+Inheritance diagram for Engine\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_engine}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_engine_a06d6fce9529416545e9b88edf5128358}{Engine} (int argc, char $\ast$$\ast$argv, const char $\ast$title, const int \&window\+Width, const int \&window\+Height)
+\item 
+virtual void \hyperlink{class_engine_af4c789fb939a0870426c698a5124a0ee}{Run} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_engine}{Engine} $\ast$ \hyperlink{class_engine_ae9f9fcca9bc01336382a0d49fed6d160}{Get\+Current\+Instance} ()
+\item 
+static const char $\ast$ \hyperlink{class_engine_ae87b850ce1f35b1b19bdefa0bfc598a8}{Get\+Window\+Title} ()
+\item 
+static int \hyperlink{class_engine_ae7020ad5026116cbbc1d89a67c41a5af}{Get\+Window\+ID} ()
+\item 
+static int \hyperlink{class_engine_afe21f271a38196c447d364a68c3ba00a}{Get\+Window\+Width} ()
+\item 
+static int \hyperlink{class_engine_af3d49b062bf02821155f5e5b563c245d}{Get\+Window\+Height} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries Initialise} ()=0\hypertarget{class_engine_a43a803fae8d4672c9119763c438825ad}{}\label{class_engine_a43a803fae8d4672c9119763c438825ad}
+
+\item 
+virtual void {\bfseries Draw} ()=0\hypertarget{class_engine_abc33391595849f65f99eb5f145535b72}{}\label{class_engine_abc33391595849f65f99eb5f145535b72}
+
+\item 
+virtual void {\bfseries Reshape} (int w, int h)=0\hypertarget{class_engine_a8c958c38482fbc3e2dfc3d7f2515d2c1}{}\label{class_engine_a8c958c38482fbc3e2dfc3d7f2515d2c1}
+
+\item 
+virtual void {\bfseries Update} (const double \&)=0\hypertarget{class_engine_a258aff43face90f1a4911b2c30cb5c58}{}\label{class_engine_a258aff43face90f1a4911b2c30cb5c58}
+
+\item 
+virtual void {\bfseries Handle\+Key} (unsigned char key, int state, int x, int y)=0\hypertarget{class_engine_ae64af2ed4a8c6629a7aa7254a0fd892a}{}\label{class_engine_ae64af2ed4a8c6629a7aa7254a0fd892a}
+
+\item 
+virtual void {\bfseries Handle\+Special\+Key} (int key, int state, int x, int y)=0\hypertarget{class_engine_ade235e5c6e7b67660205143235b8b918}{}\label{class_engine_ade235e5c6e7b67660205143235b8b918}
+
+\item 
+virtual void {\bfseries Handle\+Mouse} (int button, int state, int x, int y)=0\hypertarget{class_engine_a26cd386d9286261e9aadbcf8082110ca}{}\label{class_engine_a26cd386d9286261e9aadbcf8082110ca}
+
+\item 
+virtual void {\bfseries Handle\+Mouse\+Drag} (int x, int y)=0\hypertarget{class_engine_a88faed8e9d03f3e734ba328c962c0d95}{}\label{class_engine_a88faed8e9d03f3e734ba328c962c0d95}
+
+\item 
+virtual void {\bfseries Handle\+Mouse\+Move} (int x, int y)=0\hypertarget{class_engine_aec49b2c8ad382a7ca5f5998fbe4d995b}{}\label{class_engine_aec49b2c8ad382a7ca5f5998fbe4d995b}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_engine_abe5871e891fe327f17cb8bf28693e45d}{Init\+Func} ()
+\item 
+static void \hyperlink{class_engine_a0e5ef99e1d81785bd157634a9fe583ce}{Draw\+Func} ()
+\item 
+static void \hyperlink{class_engine_a5a05897a147382a9d271c8dbd262b4a5}{Idle\+Func} ()
+\item 
+static void \hyperlink{class_engine_abbc06815bf06ce7d560c1965067fa2e7}{Resize\+Func} (int \+\_\+width, int \+\_\+height)
+\item 
+static void \hyperlink{class_engine_ae201229f027168e251abc776d2e9a2e0}{Key\+Down\+Func} (unsigned char key, int x, int y)
+\item 
+static void \hyperlink{class_engine_a3f2e2df3c913b773cc185d21860da5d6}{Key\+Up\+Func} (unsigned char key, int x, int y)
+\item 
+static void \hyperlink{class_engine_ac21b173d6d9ec44c363989c3666061f5}{Special\+Key\+Down\+Func} (int key, int x, int y)
+\item 
+static void \hyperlink{class_engine_a0c66abbd2cfd67a99943d65f64a7951d}{Special\+Key\+Up\+Func} (int key, int x, int y)
+\item 
+static void \hyperlink{class_engine_ad016f923c1e398e192caed6e5ca9d66b}{Mouse\+Func} (int button, int state, int x, int y)
+\item 
+static void \hyperlink{class_engine_a163556fac75da746d32a4e776ca1461b}{Mouse\+Motion\+Func} (int x, int y)
+\item 
+static void \hyperlink{class_engine_a85c184fddc04c11711d7d257bb5e7954}{Passive\+Mouse\+Motion\+Func} (int x, int y)
+\item 
+static int \hyperlink{class_engine_ab6b8b85aa27ec75c3a0b61c38453c372}{Check\+G\+L\+Error} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_engine}{Engine} $\ast$ \hyperlink{class_engine_a74455645fff2e37cf3f6ad65a0709b3e}{current} = 0
+\item 
+static const char $\ast$ {\bfseries window\+Title} = \char`\"{}\char`\"{}\hypertarget{class_engine_afbe66082c7f1794516bff6e963e630b7}{}\label{class_engine_afbe66082c7f1794516bff6e963e630b7}
+
+\item 
+static int {\bfseries window\+ID} = 0\hypertarget{class_engine_a8319283c604ee6fce0cacae8fbd3ed33}{}\label{class_engine_a8319283c604ee6fce0cacae8fbd3ed33}
+
+\item 
+static int {\bfseries window\+Width} = 0\hypertarget{class_engine_a541d921b6b97e8756522958a58814344}{}\label{class_engine_a541d921b6b97e8756522958a58814344}
+
+\item 
+static int {\bfseries window\+Height} = 0\hypertarget{class_engine_a0ac480c63e98dd9b1fe4c4a3c9e6a7ca}{}\label{class_engine_a0ac480c63e98dd9b1fe4c4a3c9e6a7ca}
+
+\item 
+static int {\bfseries time} = 0\hypertarget{class_engine_a0c18d7f954663e37f58ed6f06c7040e0}{}\label{class_engine_a0c18d7f954663e37f58ed6f06c7040e0}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base \hyperlink{class_engine}{Engine} for the framework. Handles windowing and freeglut/\+Open\+GL contexts. \hyperlink{class_engine}{Engine} is static. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Engine@{Engine}!Engine@{Engine}}
+\index{Engine@{Engine}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Engine(int argc, char $\ast$$\ast$argv, const char $\ast$title, const int \&window\+Width, const int \&window\+Height)}{Engine(int argc, char **argv, const char *title, const int &windowWidth, const int &windowHeight)}}]{\setlength{\rightskip}{0pt plus 5cm}Engine\+::\+Engine (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv, }
+\item[{const char $\ast$}]{title, }
+\item[{const int \&}]{window\+Width, }
+\item[{const int \&}]{window\+Height}
+\end{DoxyParamCaption}
+)}\hypertarget{class_engine_a06d6fce9529416545e9b88edf5128358}{}\label{class_engine_a06d6fce9529416545e9b88edf5128358}
+Constructor takes in command line arguments, a title and initial window dimensions. 
+
+\subsection{Member Function Documentation}
+\index{Engine@{Engine}!Check\+G\+L\+Error@{Check\+G\+L\+Error}}
+\index{Check\+G\+L\+Error@{Check\+G\+L\+Error}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Check\+G\+L\+Error()}{CheckGLError()}}]{\setlength{\rightskip}{0pt plus 5cm}int Engine\+::\+Check\+G\+L\+Error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_ab6b8b85aa27ec75c3a0b61c38453c372}{}\label{class_engine_ab6b8b85aa27ec75c3a0b61c38453c372}
+Iterates through Open\+GL error list and dumps error information to console. 
+
+Call this method in a draw loop. \index{Engine@{Engine}!Draw\+Func@{Draw\+Func}}
+\index{Draw\+Func@{Draw\+Func}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Draw\+Func()}{DrawFunc()}}]{\setlength{\rightskip}{0pt plus 5cm}void Engine\+::\+Draw\+Func (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_a0e5ef99e1d81785bd157634a9fe583ce}{}\label{class_engine_a0e5ef99e1d81785bd157634a9fe583ce}
+Calls \hyperlink{}{Draw} and handles double buffering \index{Engine@{Engine}!Get\+Current\+Instance@{Get\+Current\+Instance}}
+\index{Get\+Current\+Instance@{Get\+Current\+Instance}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Get\+Current\+Instance()}{GetCurrentInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Engine} $\ast$ Engine\+::\+Get\+Current\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_engine_ae9f9fcca9bc01336382a0d49fed6d160}{}\label{class_engine_ae9f9fcca9bc01336382a0d49fed6d160}
+Returns self. \index{Engine@{Engine}!Get\+Window\+Height@{Get\+Window\+Height}}
+\index{Get\+Window\+Height@{Get\+Window\+Height}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Get\+Window\+Height()}{GetWindowHeight()}}]{\setlength{\rightskip}{0pt plus 5cm}int Engine\+::\+Get\+Window\+Height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_engine_af3d49b062bf02821155f5e5b563c245d}{}\label{class_engine_af3d49b062bf02821155f5e5b563c245d}
+Returns window height \index{Engine@{Engine}!Get\+Window\+ID@{Get\+Window\+ID}}
+\index{Get\+Window\+ID@{Get\+Window\+ID}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Get\+Window\+I\+D()}{GetWindowID()}}]{\setlength{\rightskip}{0pt plus 5cm}int Engine\+::\+Get\+Window\+ID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_engine_ae7020ad5026116cbbc1d89a67c41a5af}{}\label{class_engine_ae7020ad5026116cbbc1d89a67c41a5af}
+Returns window id \index{Engine@{Engine}!Get\+Window\+Title@{Get\+Window\+Title}}
+\index{Get\+Window\+Title@{Get\+Window\+Title}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Get\+Window\+Title()}{GetWindowTitle()}}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ Engine\+::\+Get\+Window\+Title (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_engine_ae87b850ce1f35b1b19bdefa0bfc598a8}{}\label{class_engine_ae87b850ce1f35b1b19bdefa0bfc598a8}
+Returns window title \index{Engine@{Engine}!Get\+Window\+Width@{Get\+Window\+Width}}
+\index{Get\+Window\+Width@{Get\+Window\+Width}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Get\+Window\+Width()}{GetWindowWidth()}}]{\setlength{\rightskip}{0pt plus 5cm}int Engine\+::\+Get\+Window\+Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_engine_afe21f271a38196c447d364a68c3ba00a}{}\label{class_engine_afe21f271a38196c447d364a68c3ba00a}
+Returns window width \index{Engine@{Engine}!Idle\+Func@{Idle\+Func}}
+\index{Idle\+Func@{Idle\+Func}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Idle\+Func()}{IdleFunc()}}]{\setlength{\rightskip}{0pt plus 5cm}void Engine\+::\+Idle\+Func (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_a5a05897a147382a9d271c8dbd262b4a5}{}\label{class_engine_a5a05897a147382a9d271c8dbd262b4a5}
+Checks runtime between successive calls and runs \hyperlink{}{Update} before pushing redisplay \index{Engine@{Engine}!Init\+Func@{Init\+Func}}
+\index{Init\+Func@{Init\+Func}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Init\+Func()}{InitFunc()}}]{\setlength{\rightskip}{0pt plus 5cm}void Engine\+::\+Init\+Func (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_abe5871e891fe327f17cb8bf28693e45d}{}\label{class_engine_abe5871e891fe327f17cb8bf28693e45d}
+Sets up default initial functionality for window \index{Engine@{Engine}!Key\+Down\+Func@{Key\+Down\+Func}}
+\index{Key\+Down\+Func@{Key\+Down\+Func}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Key\+Down\+Func(unsigned char key, int x, int y)}{KeyDownFunc(unsigned char key, int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Engine\+::\+Key\+Down\+Func (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_ae201229f027168e251abc776d2e9a2e0}{}\label{class_engine_ae201229f027168e251abc776d2e9a2e0}
+Handles key press \index{Engine@{Engine}!Key\+Up\+Func@{Key\+Up\+Func}}
+\index{Key\+Up\+Func@{Key\+Up\+Func}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Key\+Up\+Func(unsigned char key, int x, int y)}{KeyUpFunc(unsigned char key, int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Engine\+::\+Key\+Up\+Func (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_a3f2e2df3c913b773cc185d21860da5d6}{}\label{class_engine_a3f2e2df3c913b773cc185d21860da5d6}
+Handles key release \index{Engine@{Engine}!Mouse\+Func@{Mouse\+Func}}
+\index{Mouse\+Func@{Mouse\+Func}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Mouse\+Func(int button, int state, int x, int y)}{MouseFunc(int button, int state, int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Engine\+::\+Mouse\+Func (
+\begin{DoxyParamCaption}
+\item[{int}]{button, }
+\item[{int}]{state, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_ad016f923c1e398e192caed6e5ca9d66b}{}\label{class_engine_ad016f923c1e398e192caed6e5ca9d66b}
+Handles mouse button click \index{Engine@{Engine}!Mouse\+Motion\+Func@{Mouse\+Motion\+Func}}
+\index{Mouse\+Motion\+Func@{Mouse\+Motion\+Func}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Mouse\+Motion\+Func(int x, int y)}{MouseMotionFunc(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Engine\+::\+Mouse\+Motion\+Func (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_a163556fac75da746d32a4e776ca1461b}{}\label{class_engine_a163556fac75da746d32a4e776ca1461b}
+Handles mouse click and drag (active motion) \index{Engine@{Engine}!Passive\+Mouse\+Motion\+Func@{Passive\+Mouse\+Motion\+Func}}
+\index{Passive\+Mouse\+Motion\+Func@{Passive\+Mouse\+Motion\+Func}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Passive\+Mouse\+Motion\+Func(int x, int y)}{PassiveMouseMotionFunc(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Engine\+::\+Passive\+Mouse\+Motion\+Func (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_a85c184fddc04c11711d7d257bb5e7954}{}\label{class_engine_a85c184fddc04c11711d7d257bb5e7954}
+Handles mouse movement (passive motion) \index{Engine@{Engine}!Resize\+Func@{Resize\+Func}}
+\index{Resize\+Func@{Resize\+Func}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Resize\+Func(int \+\_\+width, int \+\_\+height)}{ResizeFunc(int _width, int _height)}}]{\setlength{\rightskip}{0pt plus 5cm}void Engine\+::\+Resize\+Func (
+\begin{DoxyParamCaption}
+\item[{int}]{\+\_\+width, }
+\item[{int}]{\+\_\+height}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_abbc06815bf06ce7d560c1965067fa2e7}{}\label{class_engine_abbc06815bf06ce7d560c1965067fa2e7}
+Handles window resize \index{Engine@{Engine}!Run@{Run}}
+\index{Run@{Run}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Run()}{Run()}}]{\setlength{\rightskip}{0pt plus 5cm}void Engine\+::\+Run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_engine_af4c789fb939a0870426c698a5124a0ee}{}\label{class_engine_af4c789fb939a0870426c698a5124a0ee}
+Initial startup method. Sets up GL context and windowing functions to handle drawing, timing and input. \index{Engine@{Engine}!Special\+Key\+Down\+Func@{Special\+Key\+Down\+Func}}
+\index{Special\+Key\+Down\+Func@{Special\+Key\+Down\+Func}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Special\+Key\+Down\+Func(int key, int x, int y)}{SpecialKeyDownFunc(int key, int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Engine\+::\+Special\+Key\+Down\+Func (
+\begin{DoxyParamCaption}
+\item[{int}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_ac21b173d6d9ec44c363989c3666061f5}{}\label{class_engine_ac21b173d6d9ec44c363989c3666061f5}
+Handles special key press \index{Engine@{Engine}!Special\+Key\+Up\+Func@{Special\+Key\+Up\+Func}}
+\index{Special\+Key\+Up\+Func@{Special\+Key\+Up\+Func}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{Special\+Key\+Up\+Func(int key, int x, int y)}{SpecialKeyUpFunc(int key, int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Engine\+::\+Special\+Key\+Up\+Func (
+\begin{DoxyParamCaption}
+\item[{int}]{key, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_a0c66abbd2cfd67a99943d65f64a7951d}{}\label{class_engine_a0c66abbd2cfd67a99943d65f64a7951d}
+Handles special key release 
+
+\subsection{Member Data Documentation}
+\index{Engine@{Engine}!current@{current}}
+\index{current@{current}!Engine@{Engine}}
+\subsubsection[{\texorpdfstring{current}{current}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Engine} $\ast$ Engine\+::current = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{class_engine_a74455645fff2e37cf3f6ad65a0709b3e}{}\label{class_engine_a74455645fff2e37cf3f6ad65a0709b3e}
+pointer to current window context 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Framework/\+Engine/Engine.\+h\item 
+Framework/\+Engine/Engine.\+cpp\end{DoxyCompactItemize}

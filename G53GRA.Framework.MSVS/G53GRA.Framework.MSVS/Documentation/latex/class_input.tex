@@ -1,0 +1,240 @@
+\hypertarget{class_input}{}\section{Input Class Reference}
+\label{class_input}\index{Input@{Input}}
+
+
+{\ttfamily \#include $<$Input.\+h$>$}
+
+Inheritance diagram for Input\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_input}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_input_a376e4472a9f3621238d6513252949366}{Handle\+Key} (unsigned char key, int state, int x, int y)
+\item 
+virtual void \hyperlink{class_input_adccce536f10dfe4b1de2bb22ed8ae538}{Handle\+Special\+Key} (int key, int state, int x, int y)
+\item 
+virtual void \hyperlink{class_input_a85fe43236eb168699ec57b37ab022741}{Handle\+Mouse} (int button, int state, int x, int y)
+\item 
+virtual void \hyperlink{class_input_abb590b1b9684b966340a8377ab0d00e2}{Handle\+Mouse\+Drag} (int x, int y)
+\item 
+virtual void \hyperlink{class_input_a89177666298fbef2797c677d486bc628}{Handle\+Mouse\+Move} (int x, int y)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for giving an coursework object input handling. Any class you want to have input handling should subclass the
+\begin{DoxyCode}
+\textcolor{keyword}{public} \hyperlink{class_input}{Input} 
+\end{DoxyCode}
+ . e.\+g.
+\begin{DoxyCode}
+MyObject : \textcolor{keyword}{public} \hyperlink{class_displayable_object}{DisplayableObject}, \textcolor{keyword}{public} \hyperlink{class_input}{Input} 
+\end{DoxyCode}
+ 
+
+Methods will be called from a \hyperlink{class_scene}{Scene} renderer to give input from keyboard and mouse \begin{DoxySeeAlso}{See also}
+\hyperlink{class_camera}{Camera} 
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+wil 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\index{Input@{Input}!Handle\+Key@{Handle\+Key}}
+\index{Handle\+Key@{Handle\+Key}!Input@{Input}}
+\subsubsection[{\texorpdfstring{Handle\+Key(unsigned char key, int state, int x, int y)}{HandleKey(unsigned char key, int state, int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Input\+::\+Handle\+Key (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{key, }
+\item[{int}]{state, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_input_a376e4472a9f3621238d6513252949366}{}\label{class_input_a376e4472a9f3621238d6513252949366}
+Called when keyboard input is received from A\+S\+C\+II characters. 
+
+This includes keys E\+N\+T\+ER (\&\#92;n), R\+E\+T\+U\+RN (\&\#92;cr), T\+AB (\&\#92;t), B\+A\+C\+K\+S\+P\+A\+CE (\&\#92;b), E\+SC (27), D\+E\+L\+E\+TE (127) 
+
+Note\+: check for R\+E\+T\+U\+RN and E\+N\+T\+ER for cross-\/platform operability. 
+
+Example implementation\+: 
+\begin{DoxyCode}
+  \textcolor{keywordtype}{void} MyObject:\hyperlink{class_input_a376e4472a9f3621238d6513252949366}{HandleKey}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} key, \textcolor{keywordtype}{int} state, \textcolor{keywordtype}{int} mX, \textcolor{keywordtype}{int} mY)\{
+      \textcolor{keywordflow}{if} (state == 1)\{ \textcolor{comment}{// if key pressed down}
+        \textcolor{keywordflow}{switch}(key)\{ \textcolor{comment}{// ASCII char}
+            \textcolor{keywordflow}{case} \textcolor{charliteral}{'A'}:
+              \textcolor{keywordflow}{case} \textcolor{charliteral}{'a'}:
+                  glTranslatef(-1.f,0.f,0.f); \textcolor{comment}{// go left}
+                \textcolor{keywordflow}{break};
+            \textcolor{keywordflow}{case} \textcolor{charliteral}{'D'}:
+              \textcolor{keywordflow}{case} \textcolor{charliteral}{'d'}:
+                  glTranslate(1.f,0.f,0.f); \textcolor{comment}{// go right}
+                \textcolor{keywordflow}{break};
+              \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)n'}:  \textcolor{comment}{// Windows and Linux}
+              \textcolor{keywordflow}{case} \textcolor{stringliteral}{'\(\backslash\)cr'}: \textcolor{comment}{// Mac OS X}
+                  \textcolor{comment}{// operation for using enter/return key}
+                \textcolor{keywordflow}{break};
+        \}
+    \}
+\}
+\end{DoxyCode}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_input_adccce536f10dfe4b1de2bb22ed8ae538}{Handle\+Special\+Key(int key, int state, int x, int y)} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & A\+S\+C\+II character from keyboard input \\
+\hline
+{\em state} & 1 if key down, 0 if key up \\
+\hline
+{\em x} & X coordinate of mouse in rendering window \\
+\hline
+{\em y} & Y coordinate of mouse in rendering window \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_camera_aafed3cc6d06082a7396c38f4dd4a0549}{Camera}.
+
+\index{Input@{Input}!Handle\+Mouse@{Handle\+Mouse}}
+\index{Handle\+Mouse@{Handle\+Mouse}!Input@{Input}}
+\subsubsection[{\texorpdfstring{Handle\+Mouse(int button, int state, int x, int y)}{HandleMouse(int button, int state, int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Input\+::\+Handle\+Mouse (
+\begin{DoxyParamCaption}
+\item[{int}]{button, }
+\item[{int}]{state, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_input_a85fe43236eb168699ec57b37ab022741}{}\label{class_input_a85fe43236eb168699ec57b37ab022741}
+Called when mouse is clicked up / down in the rendering window 
+
+button constants\+: G\+L\+U\+T\+\_\+\+L\+E\+F\+T\+\_\+\+B\+U\+T\+T\+ON, G\+L\+U\+T\+\_\+\+R\+I\+G\+H\+T\+\_\+\+B\+U\+T\+T\+ON and G\+L\+U\+T\+\_\+\+M\+I\+D\+D\+L\+E\+\_\+\+B\+U\+T\+T\+ON \begin{DoxySeeAlso}{See also}
+\hyperlink{class_input_abb590b1b9684b966340a8377ab0d00e2}{Handle\+Mouse\+Drag(int x, int y)} 
+
+\hyperlink{class_input_a89177666298fbef2797c677d486bc628}{Handle\+Mouse\+Move(int x, int y)} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em button} & mouse button (G\+L\+U\+T\+\_\+\+L\+E\+F\+T\+\_\+\+B\+U\+T\+T\+ON, G\+L\+U\+T\+\_\+\+R\+I\+G\+H\+T\+\_\+\+B\+U\+T\+T\+ON or G\+L\+U\+T\+\_\+\+M\+I\+D\+D\+L\+E\+\_\+\+B\+U\+T\+T\+ON) \\
+\hline
+{\em state} & 1 if mouse down, 0 if mouse up \\
+\hline
+{\em x} & X coordinate of mouse in rendering window \\
+\hline
+{\em y} & Y coordinate of mouse in rendering window \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_camera_adf8b8e5f8f1e88a373f102b3efa12697}{Camera}.
+
+\index{Input@{Input}!Handle\+Mouse\+Drag@{Handle\+Mouse\+Drag}}
+\index{Handle\+Mouse\+Drag@{Handle\+Mouse\+Drag}!Input@{Input}}
+\subsubsection[{\texorpdfstring{Handle\+Mouse\+Drag(int x, int y)}{HandleMouseDrag(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Input\+::\+Handle\+Mouse\+Drag (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_input_abb590b1b9684b966340a8377ab0d00e2}{}\label{class_input_abb590b1b9684b966340a8377ab0d00e2}
+Called when mouse is moved in rendering window while mouse button is held down \begin{DoxySeeAlso}{See also}
+\hyperlink{class_input_a85fe43236eb168699ec57b37ab022741}{Handle\+Mouse(int button, int state, int x, int y)} 
+
+\hyperlink{class_input_a89177666298fbef2797c677d486bc628}{Handle\+Mouse\+Move(int x, int y)} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate of mouse in rendering window \\
+\hline
+{\em y} & Y coordinate of mouse in rendering window \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_camera_af0b7923173a70a13f108ac69a8d9b848}{Camera}.
+
+\index{Input@{Input}!Handle\+Mouse\+Move@{Handle\+Mouse\+Move}}
+\index{Handle\+Mouse\+Move@{Handle\+Mouse\+Move}!Input@{Input}}
+\subsubsection[{\texorpdfstring{Handle\+Mouse\+Move(int x, int y)}{HandleMouseMove(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Input\+::\+Handle\+Mouse\+Move (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_input_a89177666298fbef2797c677d486bc628}{}\label{class_input_a89177666298fbef2797c677d486bc628}
+Called when mouse is moved in rendering window when no mouse button is pressed \begin{DoxySeeAlso}{See also}
+\hyperlink{class_input_a85fe43236eb168699ec57b37ab022741}{Handle\+Mouse(int button, int state, int x, int y)} 
+
+\hyperlink{class_input_abb590b1b9684b966340a8377ab0d00e2}{Handle\+Mouse\+Drag(int x, int y)} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate of mouse in rendering window \\
+\hline
+{\em y} & Y coordinate of mouse in rendering window \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_camera_a47357f68951777da13bef3234ff7474e}{Camera}.
+
+\index{Input@{Input}!Handle\+Special\+Key@{Handle\+Special\+Key}}
+\index{Handle\+Special\+Key@{Handle\+Special\+Key}!Input@{Input}}
+\subsubsection[{\texorpdfstring{Handle\+Special\+Key(int key, int state, int x, int y)}{HandleSpecialKey(int key, int state, int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Input\+::\+Handle\+Special\+Key (
+\begin{DoxyParamCaption}
+\item[{int}]{key, }
+\item[{int}]{state, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_input_adccce536f10dfe4b1de2bb22ed8ae538}{}\label{class_input_adccce536f10dfe4b1de2bb22ed8ae538}
+Called when keyboard input is received from special (non-\/\+A\+S\+C\+II) characters. 
+
+key constants are named G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+$\ast$ where $\ast$ is the key. For example\+: 
+
+(arrow keys) G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+UP, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+D\+O\+WN, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+L\+E\+FT, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+R\+I\+G\+HT, 
+
+G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+P\+A\+G\+E\+\_\+\+UP, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+P\+A\+G\+E\+\_\+\+D\+O\+WN, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+H\+O\+ME, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+E\+ND, 
+
+G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+F1, G\+L\+U\+T\+\_\+\+K\+E\+Y\+\_\+\+F2, etc. 
+
+Example implementation\+: 
+\begin{DoxyCode}
+  \textcolor{keywordtype}{void} MyObject::HandleKey(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} key, \textcolor{keywordtype}{int} state, \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y)\{
+      \textcolor{keywordflow}{if} (state == 1)\{ \textcolor{comment}{// if key pressed down}
+        \textcolor{keywordflow}{switch}(key)\{ \textcolor{comment}{// special key}
+            \textcolor{keywordflow}{case} GLUT\_KEY\_LEFT:
+                  glTranslate(-1.f,0.f,0.f); \textcolor{comment}{// go left}
+                \textcolor{keywordflow}{break};
+            \textcolor{keywordflow}{case} GLUT\_KEY\_RIGHT:
+                  glTranslate(1.f,0.f,0.f); \textcolor{comment}{// go right}
+                \textcolor{keywordflow}{break};
+        \}
+    \}
+\}
+\end{DoxyCode}
+ \begin{DoxySeeAlso}{See also}
+\#\+Handle\+Key(char key, int state, int x, int y) 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & coded keyboard input \\
+\hline
+{\em state} & 1 if key down, 0 if key up \\
+\hline
+{\em x} & X coordinate of mouse in rendering window \\
+\hline
+{\em y} & Y coordinate of mouse in rendering window \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_camera_aefce3308a5ed57fbc6666d8935fb7eac}{Camera}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Framework/\+Interface/Input.\+h\end{DoxyCompactItemize}
