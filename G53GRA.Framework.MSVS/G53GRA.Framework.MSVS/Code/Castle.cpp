@@ -13,6 +13,7 @@ Castle::~Castle()
 void Castle::Display()
 {
 	glPushMatrix();
+	glScalef(2.0f, 2.0f, 2.0f);
 	DrawTowerWithWall();
 	glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
 	glTranslatef(-2500.0f, 0.0f, 0.0f);
@@ -120,16 +121,19 @@ void Castle::DrawLongWall()
 	glPushMatrix();
 	glColor3f(0.2f, 0.4f, 0.6f);
 	glTranslatef(102.5f, 7.5f, 0.0f);
-	DrawBox(205.0f, 15.0f, 12.0f);
+	DrawBox(205.0f, 15.0f, 12.0f); //Long Wall
+	glTranslatef(0.0f, 0.0f, -6.0f);
+	glColor3f(0.1f, 0.9f, 0.6f);
+	DrawBox(20.0f, 15.0f, 0.1f); //Wall door
 	glPopMatrix();
 	glPushMatrix();
 	glTranslatef(2.5f, 20.0f, -5.5f);
 	glColor3f(0.6f, 0.4f, 0.6f);
 	for (size_t i = 0; i < 20; i++)
 	{
-		DrawBox(5.0f, 10.0f, 1.0f);
+		DrawBox(5.0f, 10.0f, 1.0f); //Above wall, tall
 		glTranslatef(5.0f, -2.5f, 0.0f);
-		DrawBox(5.0f, 5.0f, 1.0f);
+		DrawBox(5.0f, 5.0f, 1.0f); //Above wall, low
 		glTranslatef(5.0f, 2.5f, 0.0f);
 	}
 	DrawBox(5.0f, 10.0f, 1.0f);

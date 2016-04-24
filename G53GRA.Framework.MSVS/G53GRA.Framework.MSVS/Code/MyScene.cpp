@@ -17,7 +17,8 @@
 #include "SunLight.h"
 
 #include "FirstRoom.h"
-
+#include "Snow.h"
+#include "Tree.h"
 
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
 	: Scene(argc, argv, title, windowWidth, windowHeight)
@@ -210,6 +211,12 @@ void MyScene::Initialise()
 //
 	FirstRoom *fr = new FirstRoom();
 	AddObjectToScene(fr);
+
+	Snow *snow = new Snow();
+	AddObjectToScene(snow);
+
+	Tree *t = new Tree();
+	AddObjectToScene(t);
 }
 
 void MyScene::Projection()

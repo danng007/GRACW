@@ -13,7 +13,7 @@ ClotheseCase::~ClotheseCase()
 void ClotheseCase::Display()
 {
 	glPushMatrix();
-	glScalef(5.0f, 5.0f, 5.0f);
+	glScalef(2.0f, 2.0f, 2.0f);
 	glColor3f(1.0f, 0.0f, 1.0f);
 
 	glTranslatef(0.0f, 21.0f, 0.0f);
