@@ -1,8 +1,10 @@
 #pragma once
 #include "DisplayableObject.h"
 #include <cmath>
+#include <iostream>
 #include <string>
 #include <vector>
+#include "DrawCube.h"
 using namespace std;
 class Tree :
 	public DisplayableObject
@@ -14,7 +16,8 @@ public:
 	void Display();
 
 private:
-	void addReplaceString(char flag, string str);
+	DrawCube *drawCube;
+	bool out = true;
 	void setReplaceString(char flag, string str);
 	int iter = 2;
 	string init = "f";
@@ -23,7 +26,10 @@ private:
 	float angle;
 	string sequence;
 	int texId;
-	void Branch();
+	void Branch(float size);
+	void Leaf();
+	void LeafBranch();
 	void GetSequence();
+	void DrawBox(float sx, float sy, float sz);
 };
 

@@ -19,7 +19,7 @@
 #include "FirstRoom.h"
 #include "Snow.h"
 #include "Tree.h"
-
+#include "People.h"
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
 	: Scene(argc, argv, title, windowWidth, windowHeight)
 {
@@ -184,7 +184,7 @@ void MyScene::Initialise()
 //#ifdef __APPLE__
 //    Link *link = new Link(10.f, 25.f, "./linkSpriteSheet.bmp");
 //#else
-//	Link *link = new Link(10.f, 25.f, "./Code/Demos/Texturing/linkSpriteSheet.bmp");
+	//Link *link = new Link(10.f, 25.f, "./Code/Demos/Texturing/linkSpriteSheet.bmp");
 //#endif
 //	link->position(0.f, -99.9f, -100.f);
 //	link->size(10.f);
@@ -215,8 +215,11 @@ void MyScene::Initialise()
 	Snow *snow = new Snow();
 	AddObjectToScene(snow);
 
-	Tree *t = new Tree();
-	AddObjectToScene(t);
+	//Tree *t = new Tree();
+	//AddObjectToScene(t);
+
+	People *p = new People();
+	AddObjectToScene(p);
 }
 
 void MyScene::Projection()
