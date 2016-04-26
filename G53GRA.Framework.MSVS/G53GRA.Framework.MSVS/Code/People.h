@@ -2,6 +2,7 @@
 #include "DisplayableObject.h"
 #include "DrawCube.h"
 #include "Animation.h"
+#include <cmath>
 class People :
 	public DisplayableObject,
 	public Animation
@@ -27,7 +28,9 @@ private:
 	DrawCube *drawCube;
 	void DrawBox(float sx, float sy, float sz);
 	int texId;
-
+	float rotateX, rotateZ;
+	float XTranslate, ZTranslate, depth;
+	float cameraRX, cameraRY, cameraRZ;
 
 };
 

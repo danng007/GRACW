@@ -1,5 +1,6 @@
 #include "People.h"
-
+#include <iostream>
+using namespace std;
 People::People()
 {
 	drawCube = new DrawCube();
@@ -7,6 +8,10 @@ People::People()
 	
 	armAngle = 30.0f;
 	legAngle = 25.0f;
+	rotation[0] = 0.0f;
+	rotation[1] = 0.0f;
+	rotation[2] = 0.0f;
+	depth = 400.0f;
 }
 
 People::~People()
@@ -17,58 +22,84 @@ People::~People()
 
 void People::Display()
 {
-	/*glPushMatrix();
-	glPushAttrib(GL_ALL_ATTRIB_BITS);
-	glColor3f(1.0f, 0.5f, 0.0f);
-	currentCamera->GetEyePosition(pos[0], pos[1], pos[2]);
-	glTranslatef(pos[0]+ 10.0f, pos[1], pos[2]);
-	DrawBox(10.0f, 10.0f, 10.0f);
-	glPopAttrib();
-	glPopMatrix();*/
-	currentCamera->GetEyePosition(pos[0], pos[1], pos[2]);
-	glTranslatef(pos[0] , pos[1] - 120.0f, pos[2]);
-	glScalef(100.0f, 100.0f, 100.0f);
+
+	glPushMatrix();
+	glTranslatef(pos[0] + cameraRX * depth, pos[1], pos[2] + cameraRZ * depth);
+
+	glRotatef(rotateX, 0.0f, 1.0f, 0.0f);
+	glScalef(50.0f, 50.0f, 50.0f);
 	DrawPeople();
+	glPopMatrix();
+
 }
 
 void People::DrawPeople()
 {
-	//DrawHead();
-	//glTranslatef(0.0f, -1.6f, 0.0f);
+	DrawHead();
+	glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+	glTranslatef(0.0f, -1.6f, 0.0f);
 	
 	DrawBody();
 }
 
 void People::Update(const double& deltaTime)
 {
-	if (armAngle >= 60.0f || armAngle <= -60.0f)
+	if (armAngle > 60.0f)
 	{
 		armChange = !armChange;
+		armAngle = 60.0f;
 	}
+	if (armAngle < -60.0f)
+	{
+		armChange = !armChange;
+		armAngle = -60.0f;
+	}
+
 	if (armChange)
 	{
-		armAngle += 20.0f * deltaTime;
+		armAngle += 40.0f * deltaTime;
 	}
 	else
 	{
-		armAngle -= 20.0f * deltaTime;
+		armAngle -= 40.0f * deltaTime;
 	}
 
-	if (legAngle >= 70.0f || legAngle <= -70.0f)
+	if (legAngle > 70.0f )
 	{
 		legChange = !legChange;
+		legAngle = 70.0f;
+	}
+	if (legAngle < -70.0f)
+	{
+		legChange = !legChange;
+		legAngle = -70.0f;
 	}
 	if (legChange)
 	{
-		legAngle += 20.0f * deltaTime;
+		legAngle += 40.0f * deltaTime;
 	}
 	else
 	{
-		legAngle -= 20.0f * deltaTime;
+		legAngle -= 40.0f * deltaTime;
 	}
 	
-	
+	currentCamera->GetEyePosition(pos[0], pos[1], pos[2]);
+	currentCamera->GetViewDirection(cameraRX, cameraRY, cameraRZ);
+	//cout << cameraRX << " " << cameraRZ << endl;
 
+	rotateX = asin (cameraRZ) / 3.1415926 * 180.0f + 90.0f;
+	if (cameraRZ >= 0.0f)
+	{
+		rotateX = -rotateX;
+	}
+	
+	cout << cameraRZ<<" " << cameraRX<<" "<<rotateX << endl;
+	//rotateZ = (rotation[2] - cameraRZ) * 90.0f;
+	//rotation[0] = cameraRX;
+	//rotation[2] = cameraRZ;
+	//ZTranslate = -cos(rotateX) * depth;
+	//XTranslate = sin(rotateX) * depth;
+	//cout << rotateX << " "<<XTranslate << " " << ZTranslate << endl;
 }
 void People::DrawHead()
 {
@@ -79,7 +110,7 @@ void People::DrawHead()
 	glPushAttrib(GL_ALL_ATTRIB_BITS);
 	glColor3f(0.3f, 0.4f, 0.02f);
 	glutSolidSphere(1.0f, 20, 20); //head
-	glTranslatef(0.0f, 0.0f, 1.0f);
+	glTranslatef(0.0f, 0.0f, -1.0f);
 	glColor3f(0.3f, 0.4f, 0.32f);
 	glutSolidSphere(0.1f, 5, 5); //nose
 	glTranslatef(-0.25f, 0.25f, 0.0f);

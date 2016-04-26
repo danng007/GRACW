@@ -1,7 +1,8 @@
 #include "Camera.h"
 #include "VectorMath.h"
 #include "Scene.h"
-
+#include <iostream>
+using namespace std;
 Camera::Camera() : wKey(0), sKey(0), aKey(0), dKey(0), currentButton(0), mouseX(0), mouseY(0)
 {
 	Reset();
@@ -194,7 +195,7 @@ void Camera::HandleMouseDrag(int x, int y)
 	default:
 		break;
 	}
-
+	//cout << vd[0] << " " << vd[1] << " " << vd[2] << endl;
 	mouseX = x;
 	mouseY = y;
 }
