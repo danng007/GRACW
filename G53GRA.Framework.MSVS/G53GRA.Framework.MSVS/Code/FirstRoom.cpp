@@ -7,6 +7,7 @@ FirstRoom::FirstRoom()
 	clotheseCase = new ClotheseCase();
 	drawCube = new DrawCube();
 	castle = new Castle();
+	table = new Table();
 }
 
 FirstRoom::~FirstRoom()
@@ -39,11 +40,13 @@ void FirstRoom::Display()
 				glPushMatrix();
 				glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5)* SIZE);
 				clotheseCase->Display();
+				//table->Display();
 				glPopMatrix();
 				break;
 			case '3':
 				glPushMatrix();
 				glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5)* SIZE);
+				table->Display();
 				castle->Display();
 				glPopMatrix();
 				break;

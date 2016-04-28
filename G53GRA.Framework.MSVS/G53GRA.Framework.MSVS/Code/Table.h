@@ -12,6 +12,8 @@ public:
 	void DrawBox(float sx, float sy, float sz);
 private:
 	void DrawTable();
+	void DrawTableSide();
+	void DrawLamp();
 	DrawCube *drawCube;
 	int texId;
 

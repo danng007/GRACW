@@ -19,5 +19,7 @@ private:
 	void DrawDoor();
 	void DrawLongWall();
 	void DrawTowerWithWall();
+	void BindTexture();
+	int StongWallID, WoodID, HugeDoorID;
 };
 

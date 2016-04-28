@@ -7,6 +7,7 @@
 #include "ClotheseCase.h"
 #include "DrawCube.h"
 #include "Castle.h"
+#include "Table.h"
 using namespace std;
 
 class FirstRoom :
@@ -24,6 +25,7 @@ public:
 private:
 	ClotheseCase *clotheseCase;
 	Castle *castle;
+	Table *table;
 	DrawCube *drawCube;
 	int mapWidth, mapHeight;
 	char room[100][100];

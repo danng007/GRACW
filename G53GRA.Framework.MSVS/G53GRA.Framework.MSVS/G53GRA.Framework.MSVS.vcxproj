@@ -86,6 +86,7 @@
     <ClCompile Include="Code\Demos\Triforce\Triforce.cpp" />
     <ClCompile Include="Code\Demos\Viewing Example\Floor.cpp" />
     <ClCompile Include="Code\People.cpp" />
+    <ClCompile Include="Code\RecursionTree.cpp" />
     <ClCompile Include="Code\Snow.cpp" />
     <ClCompile Include="Code\Table.cpp" />
     <ClCompile Include="Code\Tree.cpp" />
@@ -118,6 +119,7 @@
     <ClInclude Include="Code\Demos\Triforce\Triforce.h" />
     <ClInclude Include="Code\Demos\Viewing Example\Floor.h" />
     <ClInclude Include="Code\People.h" />
+    <ClInclude Include="Code\RecursionTree.h" />
     <ClInclude Include="Code\Snow.h" />
     <ClInclude Include="Code\Table.h" />
     <ClInclude Include="Code\Tree.h" />
