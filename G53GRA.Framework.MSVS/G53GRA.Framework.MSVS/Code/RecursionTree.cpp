@@ -1,9 +1,11 @@
 #include "RecursionTree.h"
-
-RecursionTree::RecursionTree()
+#include <iostream>
+using namespace std;
+RecursionTree::RecursionTree(GameManager *gameManager)
 {
+	gm = gameManager;
 	drawCube = new DrawCube();
-	branchHeight = 16.5f;
+	branchHeight = 20.0f;
 	branchSize = 0.8f;
 }
 
@@ -14,10 +16,18 @@ RecursionTree::~RecursionTree()
 
 void RecursionTree::Display()
 {
-	glPushMatrix();
-	glScalef(5.0f, 5.0f, 5.0f);
-	DrawBranch(branchHeight, branchSize);
-	glPopMatrix();
+	
+	if (!gm->gameState)
+	{
+		glPushMatrix();
+		glPushAttrib(GL_ALL_ATTRIB_BITS);
+		glTranslatef(pos[0], pos[1] - 200.0f, pos[2]);
+		glScalef(30.0f, 30.0f, 30.0f);
+		DrawBranch(branchHeight, branchSize);
+		glPopAttrib();
+		glPopMatrix();
+	}
+		
 }
 
 void RecursionTree::DrawBranch(float heightBranch, float sizeBranch)
@@ -26,9 +36,10 @@ void RecursionTree::DrawBranch(float heightBranch, float sizeBranch)
 	{
 		glPushMatrix();
 		glPushAttrib(GL_ALL_ATTRIB_BITS);
-		glTranslatef(0.0f, heightBranch + 1.8f, 0.0f);
+		glTranslatef(0.0f, 0.0f, 0.0f);
 		glColor3f(0.0f, 1.0f, 0.0f);
-		glutSolidSphere(2.0f, 6, 6);
+		glutSolidSphere(2.5f, 6, 6);
+		
 		glPopAttrib();
 		glPopMatrix();
 	}
@@ -40,9 +51,10 @@ void RecursionTree::DrawBranch(float heightBranch, float sizeBranch)
 		Branch(heightBranch, sizeBranch);
 		glPushMatrix();
 		glPushAttrib(GL_ALL_ATTRIB_BITS);
-		glTranslatef(0.0f, heightBranch + 1.8f, 0.0f);
+		glTranslatef(0.0f, heightBranch + 4.0f, 0.0f);
 		glColor3f(0.0f, 1.0f, 0.0f);
 		glutSolidSphere(3.0f, 4, 4);
+		
 		glPopAttrib();
 		glPopMatrix();
 
@@ -50,24 +62,27 @@ void RecursionTree::DrawBranch(float heightBranch, float sizeBranch)
 		glTranslatef(0.0f, heightBranch / 1.5, 0.0f);
 		glRotatef(40.0f, 1.0f, 0.0f, 0.0f);
 		glRotatef(-40.0f, 0.0f, 0.0f, 1.0f);
-		DrawBranch(heightBranch - 4.0f, sizeBranch - 0.15f);
+		DrawBranch(heightBranch - 6.0f, sizeBranch - 0.15f);
 		Branch(heightBranch, sizeBranch);
+		
 		glPopMatrix();
 
 		glPushMatrix();
 		glTranslatef(0.0f, heightBranch / 1.5, 0.0f);
 		glRotatef(40.0f, 1.0f, 0.0f, 0.0f);
 		glRotatef(40.0f, 0.0f, 0.0f, 1.0f);
-		DrawBranch(heightBranch - 4.0f, sizeBranch - 0.15f);
+		DrawBranch(heightBranch - 6.0f, sizeBranch - 0.15f);
 		Branch(heightBranch, sizeBranch);
+		
 		glPopMatrix();
 
 		glPushMatrix();
 		glTranslatef(0.0f, heightBranch / 1.5, 0.0f);
 		glRotatef(-40.0f, 0.0f, 0.0f, 1.0f);
 		glRotatef(-40.0f, 1.0f, 0.0f, 0.0f);
-		DrawBranch(heightBranch - 4.0f, sizeBranch - 0.15f);
+		DrawBranch(heightBranch - 6.0f, sizeBranch - 0.15f);
 		Branch(heightBranch, sizeBranch);
+		
 		glPopMatrix();
 
 		glPopMatrix();

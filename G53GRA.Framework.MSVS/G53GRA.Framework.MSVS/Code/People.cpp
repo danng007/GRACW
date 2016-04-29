@@ -3,6 +3,7 @@
 using namespace std;
 People::People()
 {
+	
 	drawCube = new DrawCube();
 	currentCamera = Scene::GetCamera();
 	
@@ -22,14 +23,15 @@ People::~People()
 
 void People::Display()
 {
+		glPushMatrix();
+		glTranslatef(pos[0] + cameraRX * depth, pos[1], pos[2] + cameraRZ * depth);
 
-	glPushMatrix();
-	glTranslatef(pos[0] + cameraRX * depth, pos[1], pos[2] + cameraRZ * depth);
-
-	glRotatef(rotateX, 0.0f, 1.0f, 0.0f);
-	glScalef(50.0f, 50.0f, 50.0f);
-	DrawPeople();
-	glPopMatrix();
+		glRotatef(rotateX, 0.0f, 1.0f, 0.0f);
+		glScalef(40.0f, 40.0f, 40.0f);
+		DrawPeople();
+		glPopMatrix();
+	
+	
 
 }
 
@@ -44,15 +46,15 @@ void People::DrawPeople()
 
 void People::Update(const double& deltaTime)
 {
-	if (armAngle > 60.0f)
+	if (armAngle > 30.0f)
 	{
 		armChange = !armChange;
-		armAngle = 60.0f;
+		armAngle = 30.0f;
 	}
-	if (armAngle < -60.0f)
+	if (armAngle < -30.0f)
 	{
 		armChange = !armChange;
-		armAngle = -60.0f;
+		armAngle = -30.0f;
 	}
 
 	if (armChange)
@@ -64,15 +66,15 @@ void People::Update(const double& deltaTime)
 		armAngle -= 40.0f * deltaTime;
 	}
 
-	if (legAngle > 70.0f )
+	if (legAngle > 30.0f )
 	{
 		legChange = !legChange;
-		legAngle = 70.0f;
+		legAngle = 30.0f;
 	}
-	if (legAngle < -70.0f)
+	if (legAngle < -30.0f)
 	{
 		legChange = !legChange;
-		legAngle = -70.0f;
+		legAngle = -30.0f;
 	}
 	if (legChange)
 	{
@@ -85,7 +87,6 @@ void People::Update(const double& deltaTime)
 	
 	currentCamera->GetEyePosition(pos[0], pos[1], pos[2]);
 	currentCamera->GetViewDirection(cameraRX, cameraRY, cameraRZ);
-	//cout << cameraRX << " " << cameraRZ << endl;
 
 	rotateX = asin (cameraRZ) / 3.1415926 * 180.0f + 90.0f;
 	if (cameraRZ >= 0.0f)
@@ -93,13 +94,8 @@ void People::Update(const double& deltaTime)
 		rotateX = -rotateX;
 	}
 	
-	cout << cameraRZ<<" " << cameraRX<<" "<<rotateX << endl;
-	//rotateZ = (rotation[2] - cameraRZ) * 90.0f;
-	//rotation[0] = cameraRX;
-	//rotation[2] = cameraRZ;
-	//ZTranslate = -cos(rotateX) * depth;
-	//XTranslate = sin(rotateX) * depth;
-	//cout << rotateX << " "<<XTranslate << " " << ZTranslate << endl;
+	
+
 }
 void People::DrawHead()
 {

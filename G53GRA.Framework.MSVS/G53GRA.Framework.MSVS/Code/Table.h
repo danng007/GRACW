@@ -1,6 +1,7 @@
 #pragma once
 #include "DisplayableObject.h"
 #include "DrawCube.h"
+
 class Table :
 	public DisplayableObject
 {
@@ -15,8 +16,8 @@ private:
 	void DrawTableSide();
 	void DrawLamp();
 	DrawCube *drawCube;
-	int texId;
-
+	int WoodID, MentalID;
+	void BindTexture();
 
 };
 

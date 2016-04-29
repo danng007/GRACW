@@ -3,6 +3,7 @@
 #include "DrawCube.h"
 #include "Animation.h"
 #include <cmath>
+
 class People :
 	public DisplayableObject,
 	public Animation
@@ -15,6 +16,7 @@ public:
 	void DrawBox(GLfloat size);
 	void Update(const double& deltaTime);
 private:
+	
 	bool armChange = true;
 	bool legChange = true;
 	void DrawHead();

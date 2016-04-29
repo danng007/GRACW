@@ -6,8 +6,9 @@
 #include <fstream>
 #include "ClotheseCase.h"
 #include "DrawCube.h"
-#include "Castle.h"
 #include "Table.h"
+#include "GameManager.h"
+#include "Castle.h"
 using namespace std;
 
 class FirstRoom :
@@ -15,7 +16,7 @@ class FirstRoom :
 	public Input
 {
 public:
-	FirstRoom();
+	FirstRoom(GameManager *gameManager);
 	~FirstRoom();
 
 	void Display();
@@ -23,8 +24,9 @@ public:
 	void ReadFile();
 
 private:
-	ClotheseCase *clotheseCase;
+
 	Castle *castle;
+	ClotheseCase *clotheseCase;
 	Table *table;
 	DrawCube *drawCube;
 	int mapWidth, mapHeight;
@@ -33,8 +35,10 @@ private:
 	string fileString = "./file.txt";
 	float xrot, yrot, zrot;
 	float scale;
-	void DrawSingleFloor(int x, int z);
-	void FirstRoom::DrawMapCube(int x, int z ,float y, float wallHeight,  float length);
+	GameManager *gm;
+	void BindTexture();
+	int floorID, wallID, ceillingID, wallpaperID, doorID, windowID;
+	void DrawBox(float sx, float sy, float sz);
 	
 };
 

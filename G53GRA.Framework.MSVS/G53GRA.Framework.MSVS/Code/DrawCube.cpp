@@ -64,6 +64,7 @@ void DrawCube::DrawBox(GLfloat size){
 		glTexCoord2d(textureX, 0);
 		glVertex3fv(&v[faces[i][3]][0]);
 		glEnd();
+		
 	}
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
@@ -71,5 +72,5 @@ void DrawCube::DrawBox(GLfloat size){
 void DrawCube::SetTextureID(int id)
 {
 	texID = id;
-	cout << texID << endl;
+	//cout << texID << endl;
 }

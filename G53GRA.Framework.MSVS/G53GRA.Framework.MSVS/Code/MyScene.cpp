@@ -18,9 +18,9 @@
 
 #include "FirstRoom.h"
 #include "Snow.h"
-#include "Tree.h"
 #include "People.h"
 #include "RecursionTree.h"
+#include "Castle.h"
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
 	: Scene(argc, argv, title, windowWidth, windowHeight)
 {
@@ -185,7 +185,7 @@ void MyScene::Initialise()
 //#ifdef __APPLE__
 //    Link *link = new Link(10.f, 25.f, "./linkSpriteSheet.bmp");
 //#else
-	//Link *link = new Link(10.f, 25.f, "./Code/Demos/Texturing/linkSpriteSheet.bmp");
+//	Link *link = new Link(10.f, 25.f, "./Code/Demos/Texturing/linkSpriteSheet.bmp");
 //#endif
 //	link->position(0.f, -99.9f, -100.f);
 //	link->size(10.f);
@@ -210,20 +210,27 @@ void MyScene::Initialise()
 //	AddObjectToScene(link);
 //	AddObjectToScene(sl);
 //
-	FirstRoom *fr = new FirstRoom();
-	AddObjectToScene(fr);
+	
 
-	Snow *snow = new Snow();
+	GameManager *gm = new GameManager();
+	AddObjectToScene(gm);
+	
+	FirstRoom *fr = new FirstRoom(gm);
+	AddObjectToScene(fr);
+	
+	Snow *snow = new Snow(gm);
 	AddObjectToScene(snow);
 
-	//Tree *t = new Tree();
-	//AddObjectToScene(t);
+	
+	People *p = new People();
+	AddObjectToScene(p);
 
-	//People *p = new People();
-	//AddObjectToScene(p);
+	RecursionTree *rt = new RecursionTree(gm);
+	rt->position(1000.0f, 0.0f, 1000.0f);
+	AddObjectToScene(rt);
 
-	//RecursionTree *rt = new RecursionTree();
-	//AddObjectToScene(rt);
+	//Castle *castle = new Castle();
+	//AddObjectToScene(castle);
 }
 
 void MyScene::Projection()

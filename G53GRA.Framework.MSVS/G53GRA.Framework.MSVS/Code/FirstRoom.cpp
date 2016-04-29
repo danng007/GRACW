@@ -1,79 +1,133 @@
 #include "FirstRoom.h"
 
 #define SIZE 300.0f
-FirstRoom::FirstRoom()
+FirstRoom::FirstRoom(GameManager *gameManager)
 {
+	glDisable(GL_CULL_FACE);
+	gm = gameManager;
+	glEnable(GL_TEXTURE_2D);
 	ReadFile(); 
 	clotheseCase = new ClotheseCase();
 	drawCube = new DrawCube();
-	castle = new Castle();
 	table = new Table();
+	castle = new Castle();
+	BindTexture();
 }
 
 FirstRoom::~FirstRoom()
 {
-
+	//glDisable(GL_TEXTURE_2D);
 }
 
 void FirstRoom::Display()
 {
 
 
-	glDisable(GL_CULL_FACE); 
-	glPushMatrix();
-
-	for (int i = 0; i < mapWidth; i++)
+	if (gm->gameState)
 	{
-		for (int j = 0; j < mapHeight; j++)
+	
+		glPushMatrix();
+
+		for (int i = 0; i < mapWidth; i++)
 		{
-			switch (room[i][j])
+			for (int j = 0; j < mapHeight; j++)
 			{
-			case '0':
-				glColor3f(1.0f, 0.0f, 0.0f);
-				DrawSingleFloor(i, j);
-				break;
-			case '1':
-				glColor3f(0.0f, 1.0f, 0.0f);
-				//DrawMapCube(i, j, -99.0f, 300.0f, 100.0f);
-				break;
-			case '2':
+
 				glPushMatrix();
-				glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5)* SIZE);
-				clotheseCase->Display();
-				//table->Display();
+				glTranslatef((i + 0.5) * SIZE, -110.0f, (j + 0.5)* SIZE);
+				drawCube->SetTexture(2.0f, 2.0f);
+				drawCube->SetTextureID(floorID);
+				DrawBox(SIZE, 10.0f, SIZE);
+				glTranslatef(0.0f, 310.0f, 0.0f);
+				drawCube->SetTexture(1.0f, 1.0f);
+				drawCube->SetTextureID(ceillingID);
+				DrawBox(SIZE, 10.0f, SIZE);
+				drawCube->SetTextureID(0);
 				glPopMatrix();
-				break;
-			case '3':
-				glPushMatrix();
-				glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5)* SIZE);
-				table->Display();
-				castle->Display();
-				glPopMatrix();
-				break;
-			default:
-				break;
+
+				switch (room[i][j])
+				{
+				case '0':
+					break;
+				case '1':
+					glPushMatrix();
+					glTranslatef((i + 0.5) * SIZE, 50.0f, (j + 0.5)* SIZE);
+					drawCube->SetTexture(1.0f, 1.0f);
+					drawCube->SetTextureID(wallpaperID);
+					DrawBox(SIZE, 300.0f, SIZE);
+					glPopMatrix();
+					break;
+				case '2':
+					glPushMatrix();
+					glTranslatef((i + 0.5) * SIZE, 0.0f, (j + 0.5)* SIZE);
+					drawCube->SetTexture(1.0f, 1.0f);
+					drawCube->SetTextureID(doorID);
+					DrawBox(70.0f, 200.0f, SIZE);
+					glPushMatrix();
+					glTranslatef(0.0f, 150.0f, 0.0f);
+					drawCube->SetTexture(70.0 / SIZE, 100.0f / SIZE);
+					drawCube->SetTextureID(wallpaperID);
+					DrawBox(70.0f, 100.0f, SIZE);
+					glPopMatrix();
+					glTranslatef(-92.5f, 50.0f, 0.0f);
+					drawCube->SetTexture(115.0 / SIZE, 1.0f);
+					drawCube->SetTextureID(wallpaperID);
+					DrawBox(115.0f, 300.0f, SIZE);
+					glTranslatef(185.0f, 0.0f, 0.0f);
+					DrawBox(115.0f, 300.0f, SIZE);
+					glPopMatrix();
+					break;
+				case '3':
+					glPushMatrix();
+					glTranslatef((i + 0.5) * SIZE, 0.0f, (j + 0.5)* SIZE);
+					drawCube->SetTexture(1.0f, 1.0f);
+					drawCube->SetTextureID(windowID);
+					DrawBox(180.0f, 200.0f, SIZE);
+					glPushMatrix();
+					glTranslatef(0.0f, 150.0f, 0.0f);
+					drawCube->SetTexture(180.0 / SIZE, 100.0f / SIZE);
+					drawCube->SetTextureID(wallpaperID);
+					DrawBox(180.0f, 100.0f, SIZE);
+					glPopMatrix();
+					glTranslatef(-120.0f, 50.0f, 0.0f);
+					drawCube->SetTexture(60.0f / SIZE, 1.0f);
+					drawCube->SetTextureID(wallpaperID);
+					DrawBox(60.0f, 300.0f, SIZE);
+					glTranslatef(240.0f, 0.0f, 0.0f);
+					DrawBox(60.0f, 300.0f, SIZE);
+					glPopMatrix();
+					break;
+				case '4':
+					glPushMatrix();
+					glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5) * SIZE);
+					glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+					clotheseCase->Display();
+					//cout << (i + 0.5) * SIZE << " " << (j + 0.5) * SIZE << endl;  ->1050
+					glPopMatrix();
+					break;
+				case '5':
+					glPushMatrix();
+					glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5) * SIZE);
+					table->Display();
+					glPopMatrix();
+					break;
+				
+				default:
+					break;
+				}
+
 			}
-			
 		}
+		drawCube->SetTextureID(0);
+		glPopMatrix();
 	}
-
-	glPopMatrix();
+	else
+	{
+		castle->Display();
+	}
 }
 
-void FirstRoom::DrawSingleFloor(int x, int z)
-{
-	glBegin(GL_QUADS);
-	glNormal3f(0.0f, 1.0f, 0.0f);
-	glTexCoord2d(0.0f, 0.0f);
-	glVertex3f(x * SIZE, -100.0f, z *SIZE);
-	glTexCoord2d(1.0f, 0.0f);
-	glVertex3f((x + 1) * SIZE, -100.0f, z *SIZE);
-	glTexCoord2d(1.0f, 1.0f);
-	glVertex3f((x + 1) * SIZE, -100.0f, (z + 1) *SIZE);
-	glTexCoord2d(0.0f, 1.0f);
-	glVertex3f(x * SIZE, -100.0f, (z + 1) * SIZE);
-	glEnd();
-}
+
 void FirstRoom::ReadFile()
 {
 	int j = 0, k = 0;
@@ -97,48 +151,21 @@ void FirstRoom::ReadFile()
 	myfile.close();
 }
 
-void FirstRoom::DrawMapCube(int x, int z, float y, float wallHeight, float length) // firstly, drawing normal floor, then drawing unit wall at the center of block, then extend the wall to their neighbours. 
+
+void FirstRoom::BindTexture()
 {
-	glBegin(GL_QUADS);
-	glNormal3f(0.0, 1.0, 0.0);
-	glTexCoord2d(0.0f, 0.0f);
-	glVertex3f(x * SIZE, y, z *SIZE );
-	glTexCoord2d(1.0f, 0.0f);
-	glVertex3f(x * SIZE, y, (z + 1) *SIZE);
-	glTexCoord2d(1.0f, 1.0f);
-	glVertex3f(x * SIZE, wallHeight, (z + 1) *SIZE );
-	glTexCoord2d(0.0f, 1.0f);
-	glVertex3f(x * SIZE, wallHeight, z  *SIZE );
-	//front
-	glNormal3f(0.0, 1.0, 0.0);
-	glTexCoord2d(0.0f, 0.0f);
-	glVertex3f(x * SIZE, y, z *SIZE );
-	glTexCoord2d(1.0f, 0.0f);
-	glVertex3f((x + 1) * SIZE , y, z *SIZE );
-	glTexCoord2d(1.0f, 1.0f);
-	glVertex3f((x + 1) * SIZE, wallHeight, z *SIZE );
-	glTexCoord2d(0.0f, 1.0f);
-	glVertex3f(x * SIZE , wallHeight, z *SIZE );
-	//left
-	glNormal3f(0.0, 1.0, 0.0);
-	glTexCoord2d(0.0f, 0.0f);
-	glVertex3f((x + 1) * SIZE , y, z *SIZE);
-	glTexCoord2d(1.0f, 0.0f);
-	glVertex3f((x + 1) * SIZE , y, (z + 1) *SIZE );
-	glTexCoord2d(1.0f, 1.0f);
-	glVertex3f((x + 1) * SIZE , wallHeight, (z + 1) *SIZE );
-	glTexCoord2d(0.0f, 1.0f);
-	glVertex3f((x + 1) * SIZE , wallHeight, z *SIZE);
-	//right
-	glNormal3f(0.0, 1.0, 0.0);
-	glTexCoord2d(0.0f, 0.0f);
-	glVertex3f(x * SIZE , y, (z + 1) *SIZE );
-	glTexCoord2d(1.0f, 0.0f);
-	glVertex3f((x + 1) * SIZE, y, (z + 1) *SIZE );
-	glTexCoord2d(1.0f, 1.0f);
-	glVertex3f((x + 1) * SIZE , wallHeight, (z + 1) *SIZE );
-	glTexCoord2d(0.0f, 1.0f);
-	glVertex3f(x * SIZE , wallHeight, (z + 1) *SIZE );
-	glEnd();
-	
+	floorID = Scene::GetTexture("./Floor.bmp");
+	ceillingID = Scene::GetTexture("./Ceiling.bmp");
+	wallpaperID = Scene::GetTexture("./Wallpaper.bmp");
+	doorID = Scene::GetTexture("./RoomDoor.bmp");
+	windowID = Scene::GetTexture("./Window.bmp");
+}
+
+
+void FirstRoom::DrawBox(float sx, float sy, float sz)
+{
+	glPushMatrix();
+	glScalef(sx, sy, sz);                               // scale solid cube by size parameters
+	drawCube->DrawBox(1.0f);
+	glPopMatrix();
 }

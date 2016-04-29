@@ -2,6 +2,7 @@
 #define SIZE 300.0f
 Castle::Castle()
 {
+	//gm = gameManager;
 	glEnable(GL_TEXTURE_2D);
 	drawCube = new DrawCube();
 	BindTexture();
@@ -14,19 +15,22 @@ Castle::~Castle()
 
 void Castle::Display()
 {
-	glPushMatrix();
-	glScalef(2.0f, 2.0f, 2.0f);
-	DrawTowerWithWall();
-	glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-	glTranslatef(-2500.0f, 0.0f, 0.0f);
-	DrawTowerWithWall();
-	glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-	glTranslatef(-2500.0f, 0.0f, 0.0f);
-	DrawTowerWithWall();
-	glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-	glTranslatef(-2500.0f, 0.0f, 0.0f);
-	DrawTowerWithWall();
-	glPopMatrix();
+	
+		glPushMatrix();
+		glTranslatef(0.0f, -200.0f, 0.0f);
+		glScalef(2.0f, 2.0f, 2.0f);
+		DrawTowerWithWall();
+		glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+		glTranslatef(-1500.0f, 0.0f, 0.0f);
+		DrawTowerWithWall();
+		glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+		glTranslatef(-1500.0f, 0.0f, 0.0f);
+		DrawTowerWithWall();
+		glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+		glTranslatef(-1500.0f, 0.0f, 0.0f);
+		DrawTowerWithWall();
+		glPopMatrix();
+		
 }
 
 void Castle::DrawTowerWithWall()
@@ -131,11 +135,10 @@ void Castle::DrawDoor()
 void Castle::DrawLongWall()
 {
 	glPushMatrix();
-	//glColor3f(0.2f, 0.4f, 0.6f);
-	glTranslatef(102.5f, 7.5f, 0.0f);
+	glTranslatef(52.5f, 7.5f, 0.0f);
 	drawCube->SetTexture(205.0 / 2.5f, 15.0 / 2.5f);
 	drawCube->SetTextureID(StongWallID);
-	DrawBox(205.0f, 15.0f, 12.0f); //Long Wall
+	DrawBox(105.0f, 15.0f, 12.0f); //Long Wall
 	drawCube->SetTextureID(0);
 	glTranslatef(0.0f, 0.0f, -6.0f);
 	drawCube->SetTexture(1.0f, 1.0f);
@@ -146,7 +149,7 @@ void Castle::DrawLongWall()
 	glPushMatrix();
 	glTranslatef(2.5f, 20.0f, -5.5f);
 	//glColor3f(0.6f, 0.4f, 0.6f);
-	for (size_t i = 0; i < 20; i++)
+	for (size_t i = 0; i < 10; i++)
 	{
 		drawCube->SetTexture(1.0/0.5f, 10.0 /2.5f);
 		drawCube->SetTextureID(StongWallID);

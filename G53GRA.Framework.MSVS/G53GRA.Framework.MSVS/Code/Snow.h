@@ -1,6 +1,7 @@
 #pragma once
 #include "DisplayableObject.h"
 #include "Animation.h"
+#include "GameManager.h"
 class snowPiece{
 	public:
 		float x, y, z;
@@ -15,14 +16,14 @@ class Snow :
 	public Animation
 {
 public:
-	Snow();
+	Snow(GameManager *gameManager);
 	~Snow();
 
 	void Display();
 	void InitialSnow();
 	void Update(const double& deltaTime);
 private:
-
+	GameManager *gm;
 	snowPiece* snows;
 	int snowNumber;
 	int texId;

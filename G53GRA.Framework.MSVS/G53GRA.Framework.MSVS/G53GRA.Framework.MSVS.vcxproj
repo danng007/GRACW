@@ -79,6 +79,7 @@
     <ClCompile Include="Code\Demos\Texturing\Water.cpp" />
     <ClCompile Include="Code\DrawCube.cpp" />
     <ClCompile Include="Code\FirstRoom.cpp" />
+    <ClCompile Include="Code\GameManager.cpp" />
     <ClCompile Include="Code\MyScene.cpp" />
     <ClCompile Include="Code\Demos\Solar System\Planet.cpp" />
     <ClCompile Include="Code\Demos\Solar System\Planet2.cpp" />
@@ -112,6 +113,7 @@
     <ClInclude Include="Code\Demos\Texturing\Water.h" />
     <ClInclude Include="Code\DrawCube.h" />
     <ClInclude Include="Code\FirstRoom.h" />
+    <ClInclude Include="Code\GameManager.h" />
     <ClInclude Include="Code\MyScene.h" />
     <ClInclude Include="Code\Demos\Solar System\Planet.h" />
     <ClInclude Include="Code\Demos\Solar System\Planet2.h" />

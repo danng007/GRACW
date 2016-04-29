@@ -1,8 +1,10 @@
 #include "Snow.h"
+
 #define SIZE 300.0f
-Snow::Snow()
+Snow::Snow(GameManager *gameManager)
 {
-	snowNumber = 3000;
+	gm = gameManager;
+	snowNumber = 2000;
 	glEnable(GL_TEXTURE_2D);
 	snows = (snowPiece*)malloc(sizeof(snowPiece) * snowNumber);
 	InitialSnow();
@@ -17,7 +19,10 @@ Snow::~Snow()
 void Snow::Display()
 {
 	
-	for (int i = 0; i < snowNumber; i++)
+	if (!gm->gameState)
+	{
+		glPushAttrib(GL_ALL_ATTRIB_BITS);
+		for (int i = 0; i < snowNumber; i++)
 		{
 
 			glPushMatrix();
@@ -27,9 +32,8 @@ void Snow::Display()
 
 			glPopMatrix();
 		}
-	
-	
-
+		glPopAttrib();
+	}
 
 }
 
@@ -56,8 +60,8 @@ void Snow::InitialSnow()
 	
 	for (int i = 0; i < snowNumber; i++)
 	{
-		z = rand() % 4000 - 500;
-		x = rand() % 4000 - 500;
+		z = rand() % 2000 - 500;
+		x = rand() % 2000 - 500;
 		y = rand() % Scene::GetWindowHeight();
 		snows[i].x = x;
 		snows[i].y = y;

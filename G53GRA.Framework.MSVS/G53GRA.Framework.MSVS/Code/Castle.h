@@ -1,6 +1,7 @@
 #pragma once
 #include "DisplayableObject.h"
 #include "DrawCube.h"
+#include "GameManager.h"
 class Castle :
 	public DisplayableObject
 {
@@ -11,8 +12,9 @@ public:
 	void Display();
 
 private:
+	//GameManager *gm;
 	DrawCube *drawCube;
-	int texId;
+	
 	void DrawBox(float sx, float sy, float sz);
 	void DrawTower();
 	void DrawTowerSide(int doorType);
