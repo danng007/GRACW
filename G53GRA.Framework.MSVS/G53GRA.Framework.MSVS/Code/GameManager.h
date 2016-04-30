@@ -7,7 +7,7 @@ class GameManager :
 public:
 	GameManager();
 	~GameManager();
-	bool gameState = false;
+	bool gameState = true;
 	Camera *currentCamera;
 	
 	void Display();

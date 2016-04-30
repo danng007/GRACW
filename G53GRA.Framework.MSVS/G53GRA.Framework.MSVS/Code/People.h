@@ -2,7 +2,7 @@
 #include "DisplayableObject.h"
 #include "DrawCube.h"
 #include "Animation.h"
-#include <cmath>
+
 
 class People :
 	public DisplayableObject,
@@ -16,6 +16,8 @@ public:
 	void DrawBox(GLfloat size);
 	void Update(const double& deltaTime);
 private:
+	
+	bool oldState = true;
 	
 	bool armChange = true;
 	bool legChange = true;

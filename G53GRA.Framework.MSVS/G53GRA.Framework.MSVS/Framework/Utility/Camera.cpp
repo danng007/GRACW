@@ -15,9 +15,9 @@ Camera::~Camera()
 
 void Camera::Reset(){
 	// set the camera position to start at (0,0,0)
-	eyePosition[0] = 0.0f;
+	eyePosition[0] = 500.0f;
 	eyePosition[1] = 0.0f;
-	eyePosition[2] = 0.5f*Scene::GetWindowHeight() / (float)tan(M_PI / 6);//0.0f;
+	eyePosition[2] = 500.0f;//0.0f;
 
 	// set the view direction vector of the camera to be (0,0,-1)
 	vd[0] = 0.0f;
@@ -46,6 +46,11 @@ void Camera::SetViewport()
 	glViewport(0, 0, (GLsizei)Scene::GetWindowWidth(), (GLsizei)Scene::GetWindowHeight());
 }
 
+void Camera::SetState(bool state)
+{
+	gameState = state;
+}
+
 void Camera::SetupCamera()
 {
 	glMatrixMode(GL_MODELVIEW);
@@ -59,20 +64,56 @@ void Camera::SetupCamera()
 void Camera::Update(const double& deltaTime)
 {
 	float speed = 400.f * deltaTime;
+	
+	if (gameState)
+	{
+		if (eyePosition[0] >= 330 && eyePosition[0] <= 1140 && eyePosition[2] >= 320 && eyePosition[2] <= 1020)
+		{
+			oldPosition[0] = eyePosition[0];
+			oldPosition[1] = eyePosition[1];
+			oldPosition[2] = eyePosition[2];
+			if (aKey)
+				sub(eyePosition, right, speed);
 
-	if (aKey)
-		sub(eyePosition, right, speed);
+			if (dKey)
+				add(eyePosition, right, speed);
 
-	if (dKey)
-		add(eyePosition, right, speed);
+			if (wKey)
+				add(eyePosition, forward, speed);
 
-	if (wKey)
-		add(eyePosition, forward, speed);
+			if (sKey)
+				sub(eyePosition, forward, speed);
 
-	if (sKey)
-		sub(eyePosition, forward, speed);
+			SetupCamera();
+		}
+		else
+		{
+			eyePosition[0] = oldPosition[0];
+			eyePosition[1] = oldPosition[1];
+			eyePosition[2] = oldPosition[2];
+		}
+	}
+	else
+	{
+		oldPosition[0] = eyePosition[0];
+		oldPosition[1] = eyePosition[1];
+		oldPosition[2] = eyePosition[2];
+		if (aKey)
+			sub(eyePosition, right, speed);
 
-	SetupCamera();
+		if (dKey)
+			add(eyePosition, right, speed);
+
+		if (wKey)
+			add(eyePosition, forward, speed);
+
+		if (sKey)
+			sub(eyePosition, forward, speed);
+
+		SetupCamera();
+	}
+	
+	
 }
 
 void Camera::GetEyePosition(float &x, float &y, float &z) const

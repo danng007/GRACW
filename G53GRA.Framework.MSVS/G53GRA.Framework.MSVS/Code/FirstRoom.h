@@ -9,6 +9,8 @@
 #include "Table.h"
 #include "GameManager.h"
 #include "Castle.h"
+#include "SkyBox.h"
+#include "LoadModel.h"
 using namespace std;
 
 class FirstRoom :
@@ -26,6 +28,7 @@ public:
 private:
 
 	Castle *castle;
+	SkyBox *sky;
 	ClotheseCase *clotheseCase;
 	Table *table;
 	DrawCube *drawCube;
@@ -39,6 +42,6 @@ private:
 	void BindTexture();
 	int floorID, wallID, ceillingID, wallpaperID, doorID, windowID;
 	void DrawBox(float sx, float sy, float sz);
-	
+	LoadModel bed;
 };
 

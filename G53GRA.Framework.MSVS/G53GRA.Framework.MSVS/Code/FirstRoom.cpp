@@ -11,7 +11,9 @@ FirstRoom::FirstRoom(GameManager *gameManager)
 	drawCube = new DrawCube();
 	table = new Table();
 	castle = new Castle();
+	sky = new SkyBox();
 	BindTexture();
+
 }
 
 FirstRoom::~FirstRoom()
@@ -22,12 +24,13 @@ FirstRoom::~FirstRoom()
 void FirstRoom::Display()
 {
 
+	
 
 	if (gm->gameState)
 	{
 	
 		glPushMatrix();
-
+		glTranslatef(0.0f, -100.0f, 0.0f);
 		for (int i = 0; i < mapWidth; i++)
 		{
 			for (int j = 0; j < mapHeight; j++)
@@ -101,6 +104,7 @@ void FirstRoom::Display()
 					glPushMatrix();
 					glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5) * SIZE);
 					glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+					glScalef(1.5f, 1.5f, 1.5f);
 					clotheseCase->Display();
 					//cout << (i + 0.5) * SIZE << " " << (j + 0.5) * SIZE << endl;  ->1050
 					glPopMatrix();
@@ -108,10 +112,18 @@ void FirstRoom::Display()
 				case '5':
 					glPushMatrix();
 					glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5) * SIZE);
+					glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+					glScalef(1.8f, 1.8f, 1.8f);
 					table->Display();
 					glPopMatrix();
 					break;
-				
+				case '6':
+					glPushMatrix();
+					glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5) * SIZE);
+					glScalef(15.0f, 15.0f, 15.0f);
+					bed.RenderModel();
+					glPopMatrix();
+					break;
 				default:
 					break;
 				}
@@ -123,6 +135,7 @@ void FirstRoom::Display()
 	}
 	else
 	{
+		sky->Display();
 		castle->Display();
 	}
 }
@@ -154,6 +167,7 @@ void FirstRoom::ReadFile()
 
 void FirstRoom::BindTexture()
 {
+	bed.LoadOBJ("./texture/gtaBed.obj");
 	floorID = Scene::GetTexture("./Floor.bmp");
 	ceillingID = Scene::GetTexture("./Ceiling.bmp");
 	wallpaperID = Scene::GetTexture("./Wallpaper.bmp");

@@ -35,7 +35,8 @@ public:
 	* @param deltaTime change in time since previous call (unused)
 	*/
 	void Update(const double& deltaTime);
-
+	void SetState(bool state);
+	bool gameState = true;
 	/**
 	* Resets {@link Camera} vectors to default values. Sets position of camera at (0,0) in x,y-plane
 	* and puts z-position at {@code 0.5*height/tan(pi/6)} which puts the coordinate width and height of window
@@ -88,6 +89,7 @@ private:
 	* Position in space that the camera is looking at equals {@code eye+}{@link #view}.
 	*/
 	float eyePosition[3];
+	float oldPosition[3];
 	/**
 	* The vector along which the camera are looking.
 	* <p>

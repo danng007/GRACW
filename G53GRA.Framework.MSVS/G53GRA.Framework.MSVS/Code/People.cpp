@@ -12,7 +12,7 @@ People::People()
 	rotation[0] = 0.0f;
 	rotation[1] = 0.0f;
 	rotation[2] = 0.0f;
-	depth = 400.0f;
+	depth = 200.0f;
 }
 
 People::~People()
@@ -23,12 +23,14 @@ People::~People()
 
 void People::Display()
 {
+	
 		glPushMatrix();
-		glTranslatef(pos[0] + cameraRX * depth, pos[1], pos[2] + cameraRZ * depth);
-
+		glPushAttrib(GL_ALL_ATTRIB_BITS);
+		glTranslatef(pos[0] + cameraRX * depth, pos[1] - 50.0f, pos[2] + cameraRZ * depth);
 		glRotatef(rotateX, 0.0f, 1.0f, 0.0f);
-		glScalef(40.0f, 40.0f, 40.0f);
+		glScalef(30.0f, 30.0f, 30.0f);
 		DrawPeople();
+		glPopAttrib();
 		glPopMatrix();
 	
 	
@@ -103,22 +105,26 @@ void People::DrawHead()
 	glPushMatrix();
 	glScalef(0.5f, 0.5f, 0.5f);
 	glPushMatrix();
-	glPushAttrib(GL_ALL_ATTRIB_BITS);
-	glColor3f(0.3f, 0.4f, 0.02f);
+
+	glTranslatef(0.0f, 0.8f, 0.0f);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	DrawBox(2.0f, 0.6f, 2.0f);
+	glTranslatef(0.0f, -0.8f, 0.0f);
+	glColor3f(204.0f/255.0f, 132.0f/255.0f, 67.0f/255.0f);
 	glutSolidSphere(1.0f, 20, 20); //head
-	glTranslatef(0.0f, 0.0f, -1.0f);
-	glColor3f(0.3f, 0.4f, 0.32f);
-	glutSolidSphere(0.1f, 5, 5); //nose
-	glTranslatef(-0.25f, 0.25f, 0.0f);
-	glColor3f(0.3f, 0.6f, 0.02f);
-	glutSolidSphere(0.1f, 5, 5); //left eye
-	glTranslatef(0.5f, 0.0f, 0.0f);
-	glColor3f(0.6f, 0.4f, 0.02f);
-	glutSolidSphere(0.1f, 5, 5); // right eye
-	glTranslatef(-0.25f, -0.5f, 0.0f);
-	glColor3f(0.3f, 0.4f, 0.72f);
-	DrawBox(0.3f, 0.1f, 0.1f); // mosue
-	glPopAttrib();
+	//glTranslatef(0.0f, 0.0f, -1.0f);
+	//glColor3f(0.3f, 0.4f, 0.32f);
+	//glutSolidSphere(0.1f, 5, 5); //nose
+	//glTranslatef(-0.25f, 0.25f, 0.0f);
+	//glColor3f(0.3f, 0.6f, 0.02f);
+	//glutSolidSphere(0.1f, 5, 5); //left eye
+	//glTranslatef(0.5f, 0.0f, 0.0f);
+	//glColor3f(0.6f, 0.4f, 0.02f);
+	//glutSolidSphere(0.1f, 5, 5); // right eye
+	//glTranslatef(-0.25f, -0.5f, 0.0f);
+	//glColor3f(0.3f, 0.4f, 0.72f);
+	//DrawBox(0.3f, 0.1f, 0.1f); // mosue
+
 	glPopMatrix();
 	glTranslatef(0.0f, -0.6f, 0.0f);
 	//glColor3f(0.3f, 0.4f, 0.02f);
@@ -154,6 +160,7 @@ void People::DrawNeck(float size, float height)
 void People::DrawBody()
 {
 	glPushMatrix();
+	glColor3f(0.32f, 0.54f, 0.26f);
 	DrawBox(1.5f, 2.0f, 0.3f);
 
 	glPushMatrix(); //left arm
@@ -186,22 +193,26 @@ void People::DrawBody()
 void People::DrawArm(bool leftArm)
 {
 	glPushMatrix();
+	glColor3f(0.32f, 0.54f, 0.26f);
 	DrawBox(0.5f, 1.0f, 0.3f);
 	glTranslatef(0.0f, -1.0f, 0.0f);
 	glRotatef(handAngle, 1.0f, 0.0f, 0.0f);
 	DrawBox(0.5f, 1.0f, 0.3f);
 	glTranslatef(0.0f, -0.6f, 0.0f);
+	glColor3f(204.0f / 255.0f, 132.0f / 255.0f, 67.0f / 255.0f);
 	glutSolidSphere(0.2, 3,3);
 	glPopMatrix();
 }
 void People::DrawLeg(bool leftLeg)
 {
 	glPushMatrix();
+	glColor3f(0.62f, 0.64f, 0.26f);
 	DrawBox(0.5f, 1.5f, 0.3f);
 	glTranslatef(0.0f, -1.25f, 0.0f);
 	glRotatef(footAngle, 1.0f, 0.0f, 0.0f);
 	DrawBox(0.5f, 1.0f, 0.3f);
 	glTranslatef(0.0f, -0.65f, 0.0f);
+	glColor3f(0.62f, 0.14f, 0.26f);
 	DrawBox(0.5f, 0.3f, 1.0f);
 	glPopMatrix();
 }
