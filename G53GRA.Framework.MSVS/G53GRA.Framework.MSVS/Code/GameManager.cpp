@@ -40,3 +40,12 @@ void GameManager::Display()
 	}
 
 }
+
+void GameManager::HandleKey(unsigned char key, int state, int x, int y)
+{
+	/*if ((key == 'p' || key == 'P' ) && state == 0)
+	{
+		projection = !projection;
+		cout << "projection change" << endl;
+	}*/
+}

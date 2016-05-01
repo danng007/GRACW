@@ -16,7 +16,11 @@ public:
 	void DrawBox(GLfloat size);
 	void Update(const double& deltaTime);
 private:
-	
+	float* lightPosition;
+	float* ambient;
+	float* diffuse;
+	float* specular;
+	float* direction;
 	bool oldState = true;
 	
 	bool armChange = true;

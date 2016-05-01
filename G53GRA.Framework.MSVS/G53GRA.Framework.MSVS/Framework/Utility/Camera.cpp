@@ -55,6 +55,7 @@ void Camera::SetupCamera()
 {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+
 	gluLookAt(eyePosition[0],         eyePosition[1],         eyePosition[2],
 		      eyePosition[0] + vd[0], eyePosition[1] + vd[1], eyePosition[2] + vd[2],
 		      up[0],                  up[1],                  up[2]);
@@ -169,6 +170,14 @@ void Camera::HandleKey(unsigned char key, int state, int x, int y)
 		case 'S':
 		case 's':
 			sKey = state;
+			break;
+		case 'p':
+		case 'P':
+			if (state == 0)
+			{
+				projection = !projection;
+				cout << "Camera Proj" << endl;
+			}
 			break;
 		case ' ':
 			Reset();

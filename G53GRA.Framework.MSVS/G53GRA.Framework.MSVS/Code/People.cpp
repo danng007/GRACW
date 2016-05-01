@@ -13,6 +13,24 @@ People::People()
 	rotation[1] = 0.0f;
 	rotation[2] = 0.0f;
 	depth = 200.0f;
+	glEnable(GL_LIGHT3);
+	lightPosition = new float[4]{ 0.f, 0.f, 0.f, 1.f };
+	ambient = new float[4] {0.0, 0.0, 0.0, 1.0};
+	diffuse = new float[4]{ 1.0, 1.0, 1.0, 1.0};
+	specular = new float[4]{ 1.0, 1.0, 1.0, 1.0 };
+	direction = new float[3]{ 0.0, -1.0, 0.0 };
+	
+	glLightfv(GL_LIGHT3, GL_AMBIENT, ambient);
+	glLightfv(GL_LIGHT3, GL_DIFFUSE, diffuse);
+	glLightfv(GL_LIGHT3, GL_DIFFUSE, specular);
+	glLightfv(GL_LIGHT3, GL_SPOT_DIRECTION, direction);
+	// Concentrated the light
+	glLightf(GL_LIGHT3, GL_SPOT_EXPONENT, 90.f);
+	// Define the Range
+	glLightf(GL_LIGHT3, GL_SPOT_CUTOFF, 22.5f);
+	// Set the Decay
+	glLightf(GL_LIGHT3, GL_LINEAR_ATTENUATION, 0.005f);
+
 }
 
 People::~People()
@@ -27,6 +45,8 @@ void People::Display()
 		glPushMatrix();
 		glPushAttrib(GL_ALL_ATTRIB_BITS);
 		glTranslatef(pos[0] + cameraRX * depth, pos[1] - 50.0f, pos[2] + cameraRZ * depth);
+		lightPosition = new float[4]{ pos[0] + cameraRX * depth, 200.0f, pos[2] + cameraRZ * depth, 1.f };
+		glLightfv(GL_LIGHT3, GL_POSITION, lightPosition);
 		glRotatef(rotateX, 0.0f, 1.0f, 0.0f);
 		glScalef(30.0f, 30.0f, 30.0f);
 		DrawPeople();
@@ -89,7 +109,7 @@ void People::Update(const double& deltaTime)
 	
 	currentCamera->GetEyePosition(pos[0], pos[1], pos[2]);
 	currentCamera->GetViewDirection(cameraRX, cameraRY, cameraRZ);
-
+	//printf("%f  %f  %f  \n",cameraRX, cameraRY, cameraRZ);
 	rotateX = asin (cameraRZ) / 3.1415926 * 180.0f + 90.0f;
 	if (cameraRZ >= 0.0f)
 	{

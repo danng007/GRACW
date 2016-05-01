@@ -5,15 +5,20 @@ Table::Table()
 	glEnable(GL_TEXTURE_2D);
 	drawCube = new DrawCube();
 	BindTexture();
+
+	// Set the lighting attributes
+	
 }
 
 Table::~Table()
 {
+	
 	glDisable(GL_TEXTURE_2D);
 }
 
 void Table::Display()
 {
+	
 	glColor3f(1.0f, 1.0f, 1.0f );
 	glPushMatrix();
 	glScalef(20.0f, 20.0f, 20.0f);

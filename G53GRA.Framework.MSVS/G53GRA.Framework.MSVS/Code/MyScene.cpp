@@ -213,7 +213,7 @@ void MyScene::Initialise()
 //
 	
 
-	GameManager *gm = new GameManager();
+	gm = new GameManager();
 	AddObjectToScene(gm);
 	
 	FirstRoom *fr = new FirstRoom(gm);
@@ -240,5 +240,16 @@ void MyScene::Initialise()
 
 void MyScene::Projection()
 {
-	gluPerspective(60.0, (GLdouble)windowWidth / (GLdouble)windowHeight, 1.0, 100000.0);
+
+	if (GetCamera()->projection)
+	{
+		gluPerspective(60.0, (GLdouble)windowWidth / (GLdouble)windowHeight, 1.0, 100000.0);
+		//printf("pers\n");
+	}
+	else
+	{
+		//printf("orth\n");
+		glOrtho(-1000, 1000, -1000, 1000, 10, 10000);
+	}
+
 }

@@ -81,7 +81,7 @@ public:
 	* @see #Reset()
 	*/
 	void SetupCamera();
-
+	bool projection = true;
 private:
 	/**
 	* Vectors containing eye coordinates, i.e. the position of the camera.

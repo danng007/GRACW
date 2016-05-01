@@ -13,7 +13,7 @@ FirstRoom::FirstRoom(GameManager *gameManager)
 	castle = new Castle();
 	sky = new SkyBox();
 	BindTexture();
-
+	IniLight();
 }
 
 FirstRoom::~FirstRoom()
@@ -28,7 +28,9 @@ void FirstRoom::Display()
 
 	if (gm->gameState)
 	{
-	
+		glEnable(GL_LIGHT1);
+		
+
 		glPushMatrix();
 		glTranslatef(0.0f, -100.0f, 0.0f);
 		for (int i = 0; i < mapWidth; i++)
@@ -41,10 +43,13 @@ void FirstRoom::Display()
 				drawCube->SetTexture(2.0f, 2.0f);
 				drawCube->SetTextureID(floorID);
 				DrawBox(SIZE, 10.0f, SIZE);
-				glTranslatef(0.0f, 310.0f, 0.0f);
-				drawCube->SetTexture(1.0f, 1.0f);
-				drawCube->SetTextureID(ceillingID);
-				DrawBox(SIZE, 10.0f, SIZE);
+				if (Scene::GetCamera()->projection)
+				{
+					glTranslatef(0.0f, 310.0f, 0.0f);
+					drawCube->SetTexture(1.0f, 1.0f);
+					drawCube->SetTextureID(ceillingID);
+					DrawBox(SIZE, 10.0f, SIZE);
+				}
 				drawCube->SetTextureID(0);
 				glPopMatrix();
 
@@ -182,4 +187,10 @@ void FirstRoom::DrawBox(float sx, float sy, float sz)
 	glScalef(sx, sy, sz);                               // scale solid cube by size parameters
 	drawCube->DrawBox(1.0f);
 	glPopMatrix();
+}
+
+void FirstRoom::IniLight()
+{
+	
+
 }

@@ -139,6 +139,6 @@ void LoadModel::RenderModel()
 		glEnd();
 		outCounter++;
 	}
-	printf("%d\n", counter);
+	//printf("%d\n", counter);
 	glBindTexture(GL_TEXTURE_2D, 0);
 }

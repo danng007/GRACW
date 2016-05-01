@@ -24,9 +24,14 @@ public:
 	void Display();
 	//void Update(const double& deltaTime);
 	void ReadFile();
-
+	
 private:
-
+	void IniLight();
+	float* position;
+	float* ambient;
+	float* diffuse;
+	float* specular;
+	float* direction;
 	Castle *castle;
 	SkyBox *sky;
 	ClotheseCase *clotheseCase;
