@@ -5,9 +5,6 @@ Table::Table()
 	glEnable(GL_TEXTURE_2D);
 	drawCube = new DrawCube();
 	BindTexture();
-
-	// Set the lighting attributes
-	
 }
 
 Table::~Table()

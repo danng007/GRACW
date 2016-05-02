@@ -22,6 +22,7 @@
 #include "RecursionTree.h"
 #include "Castle.h"
 #include "SkyBox.h"
+#include "LightOne.h"
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
 	: Scene(argc, argv, title, windowWidth, windowHeight)
 {
@@ -223,13 +224,15 @@ void MyScene::Initialise()
 	AddObjectToScene(snow);
 
 	
-	People *p = new People();
+	People *p = new People(gm);
 	AddObjectToScene(p);
 
 	RecursionTree *rt = new RecursionTree(gm);
 	rt->position(2000.0f, 0.0f, 2000.0f);
 	AddObjectToScene(rt);
 
+	LightOne *lo = new LightOne(gm);
+	AddObjectToScene(lo);
 	//Camera * cm = GetCamera();
 	//cm->GetGameManager(gm);
 	//SkyBox *sky = new SkyBox();

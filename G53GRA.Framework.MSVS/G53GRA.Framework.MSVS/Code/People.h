@@ -2,20 +2,21 @@
 #include "DisplayableObject.h"
 #include "DrawCube.h"
 #include "Animation.h"
-
+#include "GameManager.h"
 
 class People :
 	public DisplayableObject,
 	public Animation
 {
 public:
-	People();
+	People(GameManager *gameManager);
 	~People();
 	float positions[3];
 	void Display();
 	void DrawBox(GLfloat size);
 	void Update(const double& deltaTime);
 private:
+	GameManager *gm;
 	float* lightPosition;
 	float* ambient;
 	float* diffuse;
@@ -31,7 +32,7 @@ private:
 	void DrawPeople();
 	void DrawArm(bool leftArm);
 	void DrawLeg(bool leftLeg);
-	float armAngle, legAngle, handAngle, footAngle;
+	float armAngle, legAngle, handAngle, footAngle, leftArmAngle;
 	Camera * currentCamera;
 	DrawCube *drawCube;
 	void DrawBox(float sx, float sy, float sz);

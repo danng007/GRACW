@@ -3,6 +3,7 @@
 #define SIZE 300.0f
 FirstRoom::FirstRoom(GameManager *gameManager)
 {
+	glEnable(GL_LIGHTING);
 	glDisable(GL_CULL_FACE);
 	gm = gameManager;
 	glEnable(GL_TEXTURE_2D);
@@ -18,7 +19,8 @@ FirstRoom::FirstRoom(GameManager *gameManager)
 
 FirstRoom::~FirstRoom()
 {
-	//glDisable(GL_TEXTURE_2D);
+	glDisable(GL_TEXTURE_2D);
+	glDisable(GL_LIGHTING);
 }
 
 void FirstRoom::Display()
@@ -28,7 +30,7 @@ void FirstRoom::Display()
 
 	if (gm->gameState)
 	{
-		glEnable(GL_LIGHT1);
+		
 		
 
 		glPushMatrix();
@@ -119,6 +121,7 @@ void FirstRoom::Display()
 					glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5) * SIZE);
 					glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
 					glScalef(1.8f, 1.8f, 1.8f);
+					table->position((i + 0.5) * SIZE, -100.0f, (j + 0.5) * SIZE);
 					table->Display();
 					glPopMatrix();
 					break;
@@ -191,6 +194,30 @@ void FirstRoom::DrawBox(float sx, float sy, float sz)
 
 void FirstRoom::IniLight()
 {
-	
+	// Set up the sun radio
+	//radio = 5500;
+	// Set up the sun position, w = 0 for directional light
+	//position = new float[4]{ 0.0f, 0.f, 0.f, 0.f };
+	//// Set the light ambient to 25% white
+	//ambient = new float[4] {1.0f, 0.25f, 0.25f, 1.0};
+	//// Set the diffuse light to white
+	//diffuse = new float[4]{ 1.0, 1.0, 1.0, 1.0};
+	//// Set the light specular to white
+	//specular = new float[4]{ 1.0, 1.0, 1.0, 1.0 };
+	//// Load the texure	
+	////texId = Scene::GetTexture("./sun.bmp");
+	//// initualize a sphere
+	////sphere = gluNewQuadric();
+
+	//// Specify the style
+	////gluQuadricDrawStyle(sphere, GLU_FILL);
+
+	////gluQuadricTexture(sphere, TRUE);
+
+	//glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
+	//glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
+	//glLightfv(GL_LIGHT0, GL_DIFFUSE, specular);
+	//glLightfv(GL_LIGHT0, GL_POSITION, position);
+	//glEnable(GL_LIGHT0);
 
 }

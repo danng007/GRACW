@@ -80,6 +80,7 @@
     <ClCompile Include="Code\DrawCube.cpp" />
     <ClCompile Include="Code\FirstRoom.cpp" />
     <ClCompile Include="Code\GameManager.cpp" />
+    <ClCompile Include="Code\LightOne.cpp" />
     <ClCompile Include="Code\LoadModel.cpp" />
     <ClCompile Include="Code\MyScene.cpp" />
     <ClCompile Include="Code\Demos\Solar System\Planet.cpp" />
@@ -92,7 +93,6 @@
     <ClCompile Include="Code\SkyBox.cpp" />
     <ClCompile Include="Code\Snow.cpp" />
     <ClCompile Include="Code\Table.cpp" />
-    <ClCompile Include="Code\Tree.cpp" />
     <ClCompile Include="Framework\Engine\Engine.cpp" />
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Framework\Engine\Scene.cpp" />
@@ -116,6 +116,7 @@
     <ClInclude Include="Code\DrawCube.h" />
     <ClInclude Include="Code\FirstRoom.h" />
     <ClInclude Include="Code\GameManager.h" />
+    <ClInclude Include="Code\LightOne.h" />
     <ClInclude Include="Code\LoadModel.h" />
     <ClInclude Include="Code\MyScene.h" />
     <ClInclude Include="Code\Demos\Solar System\Planet.h" />
@@ -128,7 +129,6 @@
     <ClInclude Include="Code\SkyBox.h" />
     <ClInclude Include="Code\Snow.h" />
     <ClInclude Include="Code\Table.h" />
-    <ClInclude Include="Code\Tree.h" />
     <ClInclude Include="Framework\Interface\Animation.h" />
     <ClInclude Include="Framework\Engine\Engine.h" />
     <ClInclude Include="Framework\Interface\DisplayableObject.h" />

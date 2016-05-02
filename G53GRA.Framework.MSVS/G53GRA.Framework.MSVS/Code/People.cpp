@@ -1,8 +1,9 @@
 #include "People.h"
 #include <iostream>
 using namespace std;
-People::People()
+People::People(GameManager *gameManager)
 {
+	gm = gameManager;
 	
 	drawCube = new DrawCube();
 	currentCamera = Scene::GetCamera();
@@ -13,23 +14,6 @@ People::People()
 	rotation[1] = 0.0f;
 	rotation[2] = 0.0f;
 	depth = 200.0f;
-	glEnable(GL_LIGHT3);
-	lightPosition = new float[4]{ 0.f, 0.f, 0.f, 1.f };
-	ambient = new float[4] {0.0, 0.0, 0.0, 1.0};
-	diffuse = new float[4]{ 1.0, 1.0, 1.0, 1.0};
-	specular = new float[4]{ 1.0, 1.0, 1.0, 1.0 };
-	direction = new float[3]{ 0.0, -1.0, 0.0 };
-	
-	glLightfv(GL_LIGHT3, GL_AMBIENT, ambient);
-	glLightfv(GL_LIGHT3, GL_DIFFUSE, diffuse);
-	glLightfv(GL_LIGHT3, GL_DIFFUSE, specular);
-	glLightfv(GL_LIGHT3, GL_SPOT_DIRECTION, direction);
-	// Concentrated the light
-	glLightf(GL_LIGHT3, GL_SPOT_EXPONENT, 90.f);
-	// Define the Range
-	glLightf(GL_LIGHT3, GL_SPOT_CUTOFF, 22.5f);
-	// Set the Decay
-	glLightf(GL_LIGHT3, GL_LINEAR_ATTENUATION, 0.005f);
 
 }
 
@@ -45,8 +29,6 @@ void People::Display()
 		glPushMatrix();
 		glPushAttrib(GL_ALL_ATTRIB_BITS);
 		glTranslatef(pos[0] + cameraRX * depth, pos[1] - 50.0f, pos[2] + cameraRZ * depth);
-		lightPosition = new float[4]{ pos[0] + cameraRX * depth, 200.0f, pos[2] + cameraRZ * depth, 1.f };
-		glLightfv(GL_LIGHT3, GL_POSITION, lightPosition);
 		glRotatef(rotateX, 0.0f, 1.0f, 0.0f);
 		glScalef(30.0f, 30.0f, 30.0f);
 		DrawPeople();
@@ -86,6 +68,15 @@ void People::Update(const double& deltaTime)
 	else
 	{
 		armAngle -= 40.0f * deltaTime;
+	}
+
+	if (gm->lightOn)
+	{
+		leftArmAngle = -90.0f;
+	}
+	else
+	{
+		leftArmAngle = -armAngle;
 	}
 
 	if (legAngle > 30.0f )
@@ -132,18 +123,7 @@ void People::DrawHead()
 	glTranslatef(0.0f, -0.8f, 0.0f);
 	glColor3f(204.0f/255.0f, 132.0f/255.0f, 67.0f/255.0f);
 	glutSolidSphere(1.0f, 20, 20); //head
-	//glTranslatef(0.0f, 0.0f, -1.0f);
-	//glColor3f(0.3f, 0.4f, 0.32f);
-	//glutSolidSphere(0.1f, 5, 5); //nose
-	//glTranslatef(-0.25f, 0.25f, 0.0f);
-	//glColor3f(0.3f, 0.6f, 0.02f);
-	//glutSolidSphere(0.1f, 5, 5); //left eye
-	//glTranslatef(0.5f, 0.0f, 0.0f);
-	//glColor3f(0.6f, 0.4f, 0.02f);
-	//glutSolidSphere(0.1f, 5, 5); // right eye
-	//glTranslatef(-0.25f, -0.5f, 0.0f);
-	//glColor3f(0.3f, 0.4f, 0.72f);
-	//DrawBox(0.3f, 0.1f, 0.1f); // mosue
+	
 
 	glPopMatrix();
 	glTranslatef(0.0f, -0.6f, 0.0f);
@@ -185,25 +165,25 @@ void People::DrawBody()
 
 	glPushMatrix(); //left arm
 	glTranslatef(-1.0f, 0.5f, 0.0f);
-	glRotatef(armAngle, 1.0f, 0.0f, 0.0f);
+	glRotatef(leftArmAngle, 1.0f, 0.0f, 0.0f);
 	DrawArm(true);
 	glPopMatrix();
 
 	glPushMatrix(); //right arm
 	glTranslatef(1.0f, 0.5f, 0.0f);
-	glRotatef(-armAngle, 1.0f, 0.0f, 0.0f);
+	glRotatef(armAngle, 1.0f, 0.0f, 0.0f);
 	DrawArm(false);
 	glPopMatrix();
 
 	glPushMatrix(); //left leg
 	glTranslatef(-0.25f, -1.75f, 0.0f);
-	glRotatef(-legAngle, 1.0f, 0.0f, 0.0f);
+	glRotatef(legAngle, 1.0f, 0.0f, 0.0f);
 	DrawLeg(true);
 	glPopMatrix();
 
 	glPushMatrix(); //right leg
 	glTranslatef(0.25f, -1.75f, 0.0f);
-	glRotatef(legAngle, 1.0f, 0.0f, 0.0f);
+	glRotatef(-legAngle, 1.0f, 0.0f, 0.0f);
 	DrawLeg(false);
 	glPopMatrix();
 

@@ -1,9 +1,7 @@
 #include "GameManager.h"
-#include <iostream>
 using namespace std;
 GameManager::GameManager()
 {
-	cout << "GameM" << endl;
 	glEnable(GL_TEXTURE_2D);
 	currentCamera = Scene::GetCamera();
 }
@@ -25,7 +23,6 @@ void GameManager::Display()
 			gameState = false;
 			currentCamera->Reset();
 			currentCamera->SetState(false);
-			cout << "True->false" << endl;
 		}
 	}
 	else
@@ -35,7 +32,6 @@ void GameManager::Display()
 			gameState = true;
 			currentCamera->Reset();
 			currentCamera->SetState(true);
-			cout << "False -> true" << endl;
 		}
 	}
 
@@ -43,9 +39,33 @@ void GameManager::Display()
 
 void GameManager::HandleKey(unsigned char key, int state, int x, int y)
 {
-	/*if ((key == 'p' || key == 'P' ) && state == 0)
+	if (key == 't' && state == 0)
 	{
-		projection = !projection;
-		cout << "projection change" << endl;
-	}*/
+		lightOn = !lightOn;
+	}
+}
+
+void GameManager::Update(const double& deltaTime)
+{
+
+	if (lightIntensity > 1.0f)
+	{
+		lightChange = !lightChange;
+		lightIntensity = 0.999f;
+	}
+	if (lightIntensity < 0.0f)
+	{
+		lightChange = !lightChange;
+		lightIntensity = 0.001f;
+	}
+
+	if (lightChange)
+	{
+		lightIntensity += 0.1f * deltaTime;
+	}
+	else
+	{
+		lightIntensity -= 0.1f * deltaTime;
+	}
+	
 }

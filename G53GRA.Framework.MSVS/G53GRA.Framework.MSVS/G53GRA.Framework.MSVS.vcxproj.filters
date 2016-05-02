@@ -93,9 +93,6 @@
     <ClCompile Include="Code\Snow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Tree.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Code\People.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -112,6 +109,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\LoadModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\LightOne.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -206,9 +206,6 @@
     <ClInclude Include="Code\Snow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Tree.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Code\People.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -225,6 +222,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Code\LoadModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LightOne.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
