@@ -26,12 +26,7 @@ public:
 	void ReadFile();
 	
 private:
-	void IniLight();
-	float* position;
-	float* ambient;
-	float* diffuse;
-	float* specular;
-	float* direction;
+	
 	Castle *castle;
 	SkyBox *sky;
 	ClotheseCase *clotheseCase;

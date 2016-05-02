@@ -1,6 +1,10 @@
 #include "People.h"
 #include <iostream>
 using namespace std;
+
+/*
+This class used to drawing the character and control the animation.
+*/
 People::People(GameManager *gameManager)
 {
 	gm = gameManager;
@@ -28,15 +32,13 @@ void People::Display()
 	
 		glPushMatrix();
 		glPushAttrib(GL_ALL_ATTRIB_BITS);
-		glTranslatef(pos[0] + cameraRX * depth, pos[1] - 50.0f, pos[2] + cameraRZ * depth);
+		//This translate make sure character always present at the front of camera
+		glTranslatef(pos[0] + cameraRX * depth, pos[1] - 50.0f, pos[2] + cameraRZ * depth); 
 		glRotatef(rotateX, 0.0f, 1.0f, 0.0f);
 		glScalef(30.0f, 30.0f, 30.0f);
 		DrawPeople();
 		glPopAttrib();
 		glPopMatrix();
-	
-	
-
 }
 
 void People::DrawPeople()
@@ -44,7 +46,6 @@ void People::DrawPeople()
 	DrawHead();
 	glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
 	glTranslatef(0.0f, -1.6f, 0.0f);
-	
 	DrawBody();
 }
 
@@ -112,50 +113,21 @@ void People::Update(const double& deltaTime)
 }
 void People::DrawHead()
 {
-	
+
 	glPushMatrix();
 	glScalef(0.5f, 0.5f, 0.5f);
-	glPushMatrix();
-
 	glTranslatef(0.0f, 0.8f, 0.0f);
 	glColor3f(0.0f, 0.0f, 0.0f);
-	DrawBox(2.0f, 0.6f, 2.0f);
+	DrawBox(2.0f, 0.6f, 2.0f); //hair
 	glTranslatef(0.0f, -0.8f, 0.0f);
 	glColor3f(204.0f/255.0f, 132.0f/255.0f, 67.0f/255.0f);
 	glutSolidSphere(1.0f, 20, 20); //head
-	
 
 	glPopMatrix();
-	glTranslatef(0.0f, -0.6f, 0.0f);
-	//glColor3f(0.3f, 0.4f, 0.02f);
-	DrawNeck(0.5f, 1.0f);
-	glPopMatrix();
+
 }
 
-void People::DrawNeck(float size, float height)
-{
-	float res = 0.1f * 3.1415926;                  // resolution (in radians: equivalent to 18 degrees)
-	float r = size;                        // ratio of radius to height
-	float x = r, z = 0.f;                   // initialise x and z on right of cylinder centre
-	float t = 0.f;                          // initialise angle as 0
 
-	do{                                     // create branch with multiple QUADS
-		glBegin(GL_QUADS);
-		// Create first points
-		glVertex3f(x, 0.f, z);          // bottom
-		glVertex3f(x, height, z);          // top
-		// Iterate around circle
-		t += res;                       // add increment to angle
-		x = r*cos(t);                   // move x and z around circle
-		z = r*sin(t);
-		// Close quad
-		glVertex3f(x, height, z);          // top
-		glVertex3f(x, 0.f, z);          // bottom
-		glEnd();
-	} while (t <= 2 * 3.1415926);                // full rotation around circle
-
-	glTranslatef(0.f, 1.f, 0.f);            // translate to top of branch
-}
 
 void People::DrawBody()
 {
@@ -196,7 +168,6 @@ void People::DrawArm(bool leftArm)
 	glColor3f(0.32f, 0.54f, 0.26f);
 	DrawBox(0.5f, 1.0f, 0.3f);
 	glTranslatef(0.0f, -1.0f, 0.0f);
-	glRotatef(handAngle, 1.0f, 0.0f, 0.0f);
 	DrawBox(0.5f, 1.0f, 0.3f);
 	glTranslatef(0.0f, -0.6f, 0.0f);
 	glColor3f(204.0f / 255.0f, 132.0f / 255.0f, 67.0f / 255.0f);
@@ -209,7 +180,6 @@ void People::DrawLeg(bool leftLeg)
 	glColor3f(0.62f, 0.64f, 0.26f);
 	DrawBox(0.5f, 1.5f, 0.3f);
 	glTranslatef(0.0f, -1.25f, 0.0f);
-	glRotatef(footAngle, 1.0f, 0.0f, 0.0f);
 	DrawBox(0.5f, 1.0f, 0.3f);
 	glTranslatef(0.0f, -0.65f, 0.0f);
 	glColor3f(0.62f, 0.14f, 0.26f);

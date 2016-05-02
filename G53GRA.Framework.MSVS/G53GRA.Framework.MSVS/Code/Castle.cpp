@@ -2,7 +2,6 @@
 #define SIZE 300.0f
 Castle::Castle()
 {
-	//gm = gameManager;
 	glEnable(GL_TEXTURE_2D);
 	drawCube = new DrawCube();
 	BindTexture();
@@ -15,7 +14,10 @@ Castle::~Castle()
 
 void Castle::Display()
 {
-	
+	/*
+	Whole castle combined by four same parts.
+	Each part includes a tower and long wall.
+	*/
 		glPushMatrix();
 		glTranslatef(0.0f, -200.0f, 0.0f);
 		glScalef(2.0f, 2.0f, 2.0f);
@@ -142,13 +144,15 @@ void Castle::DrawLongWall()
 	drawCube->SetTextureID(0);
 	glTranslatef(0.0f, 0.0f, -6.0f);
 	drawCube->SetTexture(1.0f, 1.0f);
-	drawCube->SetTextureID(HugeDoorID);
-	DrawBox(20.0f, 15.0f, 0.1f); //Wall door
+	drawCube->SetTextureID(HugeDoorID); 
+	DrawBox(20.0f, 15.0f, 0.1f); //Wall outside door
+	glTranslatef(0.0f, 0.0f, 12.0f);
+	glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+	DrawBox(20.0f, 15.0f, 0.1f); //Wall inside door
 	drawCube->SetTextureID(0);
 	glPopMatrix();
 	glPushMatrix();
 	glTranslatef(2.5f, 20.0f, -5.5f);
-	//glColor3f(0.6f, 0.4f, 0.6f);
 	for (size_t i = 0; i < 10; i++)
 	{
 		drawCube->SetTexture(1.0/0.5f, 10.0 /2.5f);
@@ -178,7 +182,7 @@ void Castle::DrawBox(float sx, float sy, float sz){
 void Castle::BindTexture()
 {
 	
-	StongWallID = Scene::GetTexture("./StoneWall.bmp");
-	WoodID = Scene::GetTexture("./Wood.bmp");
-	HugeDoorID = Scene::GetTexture("./Door.bmp");
+	StongWallID = Scene::GetTexture("./texture/StoneWall.bmp");
+	WoodID = Scene::GetTexture("./texture/Wood.bmp");
+	HugeDoorID = Scene::GetTexture("./texture/Door.bmp");
 }

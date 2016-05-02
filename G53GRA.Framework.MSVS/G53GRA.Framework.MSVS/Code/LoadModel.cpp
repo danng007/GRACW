@@ -1,6 +1,10 @@
 #include "LoadModel.h"
 
 #define YU 1//800//2
+
+/*
+This class used to load the model to opengl and render it.
+*/
 LoadModel::LoadModel()
 {
 

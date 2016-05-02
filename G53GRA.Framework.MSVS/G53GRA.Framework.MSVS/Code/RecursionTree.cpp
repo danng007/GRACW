@@ -1,6 +1,12 @@
 #include "RecursionTree.h"
 #include <iostream>
 using namespace std;
+/*
+This class used a recursion algorithm to simulate a tree.
+The recursion used branch with basic part as leaf.
+Each branch will extend to three, each branch rotate to different direction
+Detail described in report.
+*/
 RecursionTree::RecursionTree(GameManager *gameManager)
 {
 	gm = gameManager;
@@ -32,14 +38,13 @@ void RecursionTree::Display()
 
 void RecursionTree::DrawBranch(float heightBranch, float sizeBranch)
 {
-	if (heightBranch <= 0.0f)
+	if (heightBranch <= 0.0f) // use height of branch as the judge standard 
 	{
 		glPushMatrix();
 		glPushAttrib(GL_ALL_ATTRIB_BITS);
 		glTranslatef(0.0f, 0.0f, 0.0f);
 		glColor3f(0.0f, 1.0f, 0.0f);
-		glutSolidSphere(2.5f, 6, 6);
-		
+		glutSolidSphere(2.5f, 6, 6); //Leaf
 		glPopAttrib();
 		glPopMatrix();
 	}
@@ -51,38 +56,35 @@ void RecursionTree::DrawBranch(float heightBranch, float sizeBranch)
 		Branch(heightBranch, sizeBranch);
 		glPushMatrix();
 		glPushAttrib(GL_ALL_ATTRIB_BITS);
-		glTranslatef(0.0f, heightBranch + 4.0f, 0.0f);
+		glTranslatef(0.0f, heightBranch + 4.0f, 0.0f); //Leaf
 		glColor3f(0.0f, 1.0f, 0.0f);
 		glutSolidSphere(3.0f, 4, 4);
 		
 		glPopAttrib();
 		glPopMatrix();
 
-		glPushMatrix();
+		glPushMatrix(); //Branch one
 		glTranslatef(0.0f, heightBranch / 1.5, 0.0f);
 		glRotatef(40.0f, 1.0f, 0.0f, 0.0f);
 		glRotatef(-40.0f, 0.0f, 0.0f, 1.0f);
 		DrawBranch(heightBranch - 6.0f, sizeBranch - 0.15f);
 		Branch(heightBranch, sizeBranch);
-		
 		glPopMatrix();
 
-		glPushMatrix();
+		glPushMatrix(); //Branch two
 		glTranslatef(0.0f, heightBranch / 1.5, 0.0f);
 		glRotatef(40.0f, 1.0f, 0.0f, 0.0f);
 		glRotatef(40.0f, 0.0f, 0.0f, 1.0f);
 		DrawBranch(heightBranch - 6.0f, sizeBranch - 0.15f);
 		Branch(heightBranch, sizeBranch);
-		
 		glPopMatrix();
 
-		glPushMatrix();
+		glPushMatrix(); //Branch three
 		glTranslatef(0.0f, heightBranch / 1.5, 0.0f);
 		glRotatef(-40.0f, 0.0f, 0.0f, 1.0f);
 		glRotatef(-40.0f, 1.0f, 0.0f, 0.0f);
 		DrawBranch(heightBranch - 6.0f, sizeBranch - 0.15f);
 		Branch(heightBranch, sizeBranch);
-		
 		glPopMatrix();
 
 		glPopMatrix();

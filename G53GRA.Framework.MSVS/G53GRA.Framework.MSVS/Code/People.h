@@ -27,12 +27,11 @@ private:
 	bool armChange = true;
 	bool legChange = true;
 	void DrawHead();
-	void DrawNeck(float size, float height);
 	void DrawBody();
 	void DrawPeople();
 	void DrawArm(bool leftArm);
 	void DrawLeg(bool leftLeg);
-	float armAngle, legAngle, handAngle, footAngle, leftArmAngle;
+	float armAngle, legAngle, leftArmAngle;
 	Camera * currentCamera;
 	DrawCube *drawCube;
 	void DrawBox(float sx, float sy, float sz);

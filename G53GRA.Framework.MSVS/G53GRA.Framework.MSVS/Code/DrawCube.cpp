@@ -2,6 +2,13 @@
 #include <iostream>
 #define SIZE 300.0f
 using namespace std;
+
+/*
+Rewrite the glutsolidcube function.
+Now it included texture part.
+SetTexture will define the texture size in each part.
+*/
+
 DrawCube::DrawCube()
 {
 	glEnable(GL_TEXTURE_2D);

@@ -1,5 +1,9 @@
 #include "GameManager.h"
 using namespace std;
+/*
+This class used to check game states.
+Also used to control flashlight
+*/
 GameManager::GameManager()
 {
 	glEnable(GL_TEXTURE_2D);
@@ -18,10 +22,11 @@ void GameManager::Display()
 	
 	if (gameState)
 	{
-		if (pos[0] >= 950.0f && pos[0] <= 1100.0f && pos[2] >= 1000.0f && pos[2] <= 1100.0f)
+		//Controled by player's coordinate,  first one is the position of clothese case, second one is the position of tree
+		if (pos[0] >= 950.0f && pos[0] <= 1100.0f && pos[2] >= 1000.0f && pos[2] <= 1100.0f) 
 		{
 			gameState = false;
-			currentCamera->Reset();
+			currentCamera->Reset(); 
 			currentCamera->SetState(false);
 		}
 	}
@@ -30,7 +35,7 @@ void GameManager::Display()
 		if (pos[0] >= 1950.0f && pos[0] <= 2050.0f && pos[2] >= 1950.0f && pos[2] <= 2050.0f)
 		{
 			gameState = true;
-			currentCamera->Reset();
+			currentCamera->Reset(); // reset camera incase translated to outside
 			currentCamera->SetState(true);
 		}
 	}
@@ -45,27 +50,3 @@ void GameManager::HandleKey(unsigned char key, int state, int x, int y)
 	}
 }
 
-void GameManager::Update(const double& deltaTime)
-{
-
-	if (lightIntensity > 1.0f)
-	{
-		lightChange = !lightChange;
-		lightIntensity = 0.999f;
-	}
-	if (lightIntensity < 0.0f)
-	{
-		lightChange = !lightChange;
-		lightIntensity = 0.001f;
-	}
-
-	if (lightChange)
-	{
-		lightIntensity += 0.1f * deltaTime;
-	}
-	else
-	{
-		lightIntensity -= 0.1f * deltaTime;
-	}
-	
-}

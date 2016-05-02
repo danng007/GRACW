@@ -1,6 +1,9 @@
 #include "FirstRoom.h"
-
 #define SIZE 300.0f
+/*
+This class used to draw the room scene. Also used to manage display of castle and skybox.
+File input used here so it's more convenient to manage the room's structure.
+*/
 FirstRoom::FirstRoom(GameManager *gameManager)
 {
 	glEnable(GL_LIGHTING);
@@ -14,7 +17,6 @@ FirstRoom::FirstRoom(GameManager *gameManager)
 	castle = new Castle();
 	sky = new SkyBox();
 	BindTexture();
-	IniLight();
 }
 
 FirstRoom::~FirstRoom()
@@ -26,12 +28,8 @@ FirstRoom::~FirstRoom()
 void FirstRoom::Display()
 {
 
-	
-
-	if (gm->gameState)
+	if (gm->gameState) // Room stage
 	{
-		
-		
 
 		glPushMatrix();
 		glTranslatef(0.0f, -100.0f, 0.0f);
@@ -57,9 +55,9 @@ void FirstRoom::Display()
 
 				switch (room[i][j])
 				{
-				case '0':
+				case '0': //blank
 					break;
-				case '1':
+				case '1': //Wall
 					glPushMatrix();
 					glTranslatef((i + 0.5) * SIZE, 50.0f, (j + 0.5)* SIZE);
 					drawCube->SetTexture(1.0f, 1.0f);
@@ -67,7 +65,7 @@ void FirstRoom::Display()
 					DrawBox(SIZE, 300.0f, SIZE);
 					glPopMatrix();
 					break;
-				case '2':
+				case '2': //Door
 					glPushMatrix();
 					glTranslatef((i + 0.5) * SIZE, 0.0f, (j + 0.5)* SIZE);
 					drawCube->SetTexture(1.0f, 1.0f);
@@ -87,7 +85,7 @@ void FirstRoom::Display()
 					DrawBox(115.0f, 300.0f, SIZE);
 					glPopMatrix();
 					break;
-				case '3':
+				case '3': //Window
 					glPushMatrix();
 					glTranslatef((i + 0.5) * SIZE, 0.0f, (j + 0.5)* SIZE);
 					drawCube->SetTexture(1.0f, 1.0f);
@@ -107,16 +105,15 @@ void FirstRoom::Display()
 					DrawBox(60.0f, 300.0f, SIZE);
 					glPopMatrix();
 					break;
-				case '4':
+				case '4': //Clothese Box
 					glPushMatrix();
 					glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5) * SIZE);
 					glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
 					glScalef(1.5f, 1.5f, 1.5f);
 					clotheseCase->Display();
-					//cout << (i + 0.5) * SIZE << " " << (j + 0.5) * SIZE << endl;  ->1050
 					glPopMatrix();
 					break;
-				case '5':
+				case '5': //Table with desk lamp
 					glPushMatrix();
 					glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5) * SIZE);
 					glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
@@ -125,7 +122,7 @@ void FirstRoom::Display()
 					table->Display();
 					glPopMatrix();
 					break;
-				case '6':
+				case '6': //Bed
 					glPushMatrix();
 					glTranslatef((i + 0.5) * SIZE, -100.0f, (j + 0.5) * SIZE);
 					glScalef(15.0f, 15.0f, 15.0f);
@@ -141,10 +138,10 @@ void FirstRoom::Display()
 		drawCube->SetTextureID(0);
 		glPopMatrix();
 	}
-	else
+	else //Castle Stage.
 	{
 		sky->Display();
-		castle->Display();
+		castle->Display(); //In room stage, player unable go to outside.
 	}
 }
 
@@ -176,11 +173,11 @@ void FirstRoom::ReadFile()
 void FirstRoom::BindTexture()
 {
 	bed.LoadOBJ("./texture/gtaBed.obj");
-	floorID = Scene::GetTexture("./Floor.bmp");
-	ceillingID = Scene::GetTexture("./Ceiling.bmp");
-	wallpaperID = Scene::GetTexture("./Wallpaper.bmp");
-	doorID = Scene::GetTexture("./RoomDoor.bmp");
-	windowID = Scene::GetTexture("./Window.bmp");
+	floorID = Scene::GetTexture("./texture/Floor.bmp");
+	ceillingID = Scene::GetTexture("./texture/Ceiling.bmp");
+	wallpaperID = Scene::GetTexture("./texture/Wallpaper.bmp");
+	doorID = Scene::GetTexture("./texture/RoomDoor.bmp");
+	windowID = Scene::GetTexture("./texture/Window.bmp");
 }
 
 
@@ -190,34 +187,4 @@ void FirstRoom::DrawBox(float sx, float sy, float sz)
 	glScalef(sx, sy, sz);                               // scale solid cube by size parameters
 	drawCube->DrawBox(1.0f);
 	glPopMatrix();
-}
-
-void FirstRoom::IniLight()
-{
-	// Set up the sun radio
-	//radio = 5500;
-	// Set up the sun position, w = 0 for directional light
-	//position = new float[4]{ 0.0f, 0.f, 0.f, 0.f };
-	//// Set the light ambient to 25% white
-	//ambient = new float[4] {1.0f, 0.25f, 0.25f, 1.0};
-	//// Set the diffuse light to white
-	//diffuse = new float[4]{ 1.0, 1.0, 1.0, 1.0};
-	//// Set the light specular to white
-	//specular = new float[4]{ 1.0, 1.0, 1.0, 1.0 };
-	//// Load the texure	
-	////texId = Scene::GetTexture("./sun.bmp");
-	//// initualize a sphere
-	////sphere = gluNewQuadric();
-
-	//// Specify the style
-	////gluQuadricDrawStyle(sphere, GLU_FILL);
-
-	////gluQuadricTexture(sphere, TRUE);
-
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
-	//glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
-	//glLightfv(GL_LIGHT0, GL_DIFFUSE, specular);
-	//glLightfv(GL_LIGHT0, GL_POSITION, position);
-	//glEnable(GL_LIGHT0);
-
 }

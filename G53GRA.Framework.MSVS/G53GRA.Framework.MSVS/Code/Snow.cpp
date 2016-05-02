@@ -4,7 +4,7 @@
 Snow::Snow(GameManager *gameManager)
 {
 	gm = gameManager;
-	snowNumber = 2000;
+	snowNumber = 3000;
 	glEnable(GL_TEXTURE_2D);
 	snows = (snowPiece*)malloc(sizeof(snowPiece) * snowNumber);
 	InitialSnow();
@@ -60,8 +60,8 @@ void Snow::InitialSnow()
 	
 	for (int i = 0; i < snowNumber; i++)
 	{
-		z = rand() % 2000 - 500;
-		x = rand() % 2000 - 500;
+		z = rand() % 3000 - 500;
+		x = rand() % 3000 - 500;
 		y = rand() % Scene::GetWindowHeight();
 		snows[i].x = x;
 		snows[i].y = y;

@@ -1,6 +1,10 @@
 #include "LightOne.h"
 
-
+/*
+Two types of light created in this class
+GL_LIGHT1 is spot light which present the flash light
+GL_LIGHT2 is ambient light which present a mysterious envrionment of the castle stage. 
+*/
 LightOne::LightOne(GameManager *gameManager)
 {
 	glEnable(GL_LIGHTING);
@@ -9,11 +13,11 @@ LightOne::LightOne(GameManager *gameManager)
 	// Get the camera
 	currentCamera = Scene::GetCamera();
 
-	// Initialise the lighting attributes
+	// Initialise the spot light attributes
 	position = new float[4]{ 0.f, 0.f, 0.f, 1.f };
 	ambient = new float[4] {0.0, 0.0, 0.0, 1.0};
 	diffuse = new float[4]{ 1.0, 1.0, 1.0, 1.0};
-	specular = new float[4]{ 1.0, 1.0, 0.0, 1.0 };
+	specular = new float[4]{ 1.0, 1.0, 0.0, 1.0 }; //present yellow light
 	direction = new float[3]{ 0.0, 0.0, 0.0 };
 
 	glLightfv(GL_LIGHT1, GL_AMBIENT, ambient);
@@ -25,7 +29,7 @@ LightOne::LightOne(GameManager *gameManager)
 	glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 22.5f);
 
 
-
+	//Initialise the ambient light attributes
 	amPosition = new float[4]{ 1000.0f, 0.f, 0.f, 0.f };
 	amAmbient = new float[4] {0.1f, 0.0f, 0.2f, 1.0};
 	amDiffuse = new float[4]{ 0.4f, 0.4f, 0.7f, 1.0};
@@ -77,7 +81,7 @@ void LightOne::Update(const double& deltaTime) {
 		currentCamera->GetViewDirection(direction[0], direction[1], direction[2]);
 		currentCamera->GetEyePosition(position[0], position[1], position[2]);
 		position[0] += direction[0] * 200.0f;
-		position[2] += direction[2] * 200.0f;
+		position[2] += direction[2] * 200.0f; // the character is front of camera, so some translate applied here.
 
 		glLightfv(GL_LIGHT1, GL_POSITION, position);
 		glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, direction);
