@@ -23,6 +23,7 @@
 #include "Castle.h"
 #include "SkyBox.h"
 #include "LightOne.h"
+#include "Lion.h"
 MyScene::MyScene(int argc, char** argv, const char *title, const int& windowWidth, const int& windowHeight)
 	: Scene(argc, argv, title, windowWidth, windowHeight)
 {
@@ -233,12 +234,11 @@ void MyScene::Initialise()
 
 	LightOne *lo = new LightOne(gm);
 	AddObjectToScene(lo);
-	//Camera * cm = GetCamera();
-	//cm->GetGameManager(gm);
-	//SkyBox *sky = new SkyBox();
-	//AddObjectToScene(sky);
-	//Castle *castle = new Castle();
-	//AddObjectToScene(castle);
+
+	Lion *lion = new Lion(gm);
+	lion->position(1500.0f, -160.0f, 1500.0f);
+	AddObjectToScene(lion);
+
 }
 
 void MyScene::Projection()

@@ -101,7 +101,6 @@ void People::Update(const double& deltaTime)
 	
 	currentCamera->GetEyePosition(pos[0], pos[1], pos[2]);
 	currentCamera->GetViewDirection(cameraRX, cameraRY, cameraRZ);
-	//printf("%f  %f  %f  \n",cameraRX, cameraRY, cameraRZ);
 	rotateX = asin (cameraRZ) / 3.1415926 * 180.0f + 90.0f;
 	if (cameraRZ >= 0.0f)
 	{

@@ -81,6 +81,7 @@
     <ClCompile Include="Code\FirstRoom.cpp" />
     <ClCompile Include="Code\GameManager.cpp" />
     <ClCompile Include="Code\LightOne.cpp" />
+    <ClCompile Include="Code\Lion.cpp" />
     <ClCompile Include="Code\LoadModel.cpp" />
     <ClCompile Include="Code\MyScene.cpp" />
     <ClCompile Include="Code\Demos\Solar System\Planet.cpp" />
@@ -117,6 +118,7 @@
     <ClInclude Include="Code\FirstRoom.h" />
     <ClInclude Include="Code\GameManager.h" />
     <ClInclude Include="Code\LightOne.h" />
+    <ClInclude Include="Code\Lion.h" />
     <ClInclude Include="Code\LoadModel.h" />
     <ClInclude Include="Code\MyScene.h" />
     <ClInclude Include="Code\Demos\Solar System\Planet.h" />

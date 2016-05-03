@@ -89,7 +89,7 @@ void Table::DrawBox(float sx, float sy, float sz){
 	glPopMatrix();
 }
 
-void Table::BindTexture()
+void Table::BindTexture() 
 {
 	WoodID = Scene::GetTexture("./texture/Wood2.bmp");
 	MentalID = Scene::GetTexture("./texture/tvBlack.bmp");

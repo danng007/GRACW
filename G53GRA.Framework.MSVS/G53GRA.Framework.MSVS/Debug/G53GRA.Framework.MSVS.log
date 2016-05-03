@@ -1,4 +1,4 @@
-﻿Build started 2016/5/2 10:47:56.
+﻿Build started 2016/5/3 6:46:03.
      1>Project "C:\Users\Want\Desktop\FYP\GRACW\G53GRA.Framework.MSVS\G53GRA.Framework.MSVS\G53GRA.Framework.MSVS.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          E:\VS\VC\bin\CL.exe /c /I.\Code\Demos\Texturing /I.\Code\Demos\Lighting /I.\Code\Objects /I.\Framework /I.\Code /I".\Code\Demos\Viewing Example" /I".\Code\Demos\Solar System" /I".\Code\Demos\Animated Lamp" /I.\Code\Demos\Triforce /I.\Code\Demos /I.\Framework\Utility /I.\Framework\Interface /I.\Framework\Engine /I../freeglut/include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Code\MyScene.cpp Code\People.cpp
@@ -7,9 +7,7 @@
      1>c:\users\want\desktop\fyp\gracw\g53gra.framework.msvs\g53gra.framework.msvs\code\people.cpp(71): warning C4244: '-=' : conversion from 'const double' to 'float', possible loss of data
      1>c:\users\want\desktop\fyp\gracw\g53gra.framework.msvs\g53gra.framework.msvs\code\people.cpp(95): warning C4244: '+=' : conversion from 'const double' to 'float', possible loss of data
      1>c:\users\want\desktop\fyp\gracw\g53gra.framework.msvs\g53gra.framework.msvs\code\people.cpp(99): warning C4244: '-=' : conversion from 'const double' to 'float', possible loss of data
-     1>c:\users\want\desktop\fyp\gracw\g53gra.framework.msvs\g53gra.framework.msvs\code\people.cpp(105): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-         Generating Code...
-         Compiling...
+     1>c:\users\want\desktop\fyp\gracw\g53gra.framework.msvs\g53gra.framework.msvs\code\people.cpp(104): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
          MyScene.cpp
      1>c:\users\want\desktop\fyp\gracw\g53gra.framework.msvs\g53gra.framework.msvs\code\myscene.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          Generating Code...
@@ -29,6 +27,7 @@
          Debug\FirstRoom.obj
          Debug\GameManager.obj
          Debug\LightOne.obj
+         Debug\Lion.obj
          Debug\LoadModel.obj
          Debug\MyScene.obj
          Debug\Planet.obj
@@ -52,4 +51,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.32
+Time Elapsed 00:00:02.96

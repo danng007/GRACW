@@ -11,9 +11,7 @@ class People :
 public:
 	People(GameManager *gameManager);
 	~People();
-	float positions[3];
 	void Display();
-	void DrawBox(GLfloat size);
 	void Update(const double& deltaTime);
 private:
 	GameManager *gm;
